@@ -1,0 +1,377 @@
+body {
+    font-family: 'Poppins', Arial, Helvetica, sans-serif;
+    margin: 0;
+    width: 100%;
+    height: 100vh;
+}
+body::-webkit-scrollbar {
+    display: none; /* Webkit browsers like Chrome and Safari */
+}
+
+.nav-panel {
+    z-index: 9999;
+    position: fixed;
+    top: 0; 
+    width: 100%; 
+    display: flex; 
+}
+
+.nav-panel {
+    z-index: 999;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    display: flex;
+    transition: background-color 0.3s ease, color 0.3s ease; 
+}
+.nav-panel img{
+    height: 60px;
+    width: auto;
+    position: absolute;
+    left: 2%;
+    top: -5px;
+}
+nav {
+    background-color: rgba(0, 0, 0, 0.20);
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.40), rgba(0, 0, 0, 0.20), rgba(0, 0, 0, 0.00));
+    color: white; 
+}
+
+.nav-panel.scrolled {
+    background-color: white; 
+    background: white; 
+    color: black; 
+
+}
+
+nav ul {
+    width: 100%;
+    list-style: none;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+nav li {
+    height: 50px;
+}
+
+nav a {
+    height: 100%;
+    padding: 0 20px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    color: inherit; 
+    position: relative; /* Allow the pseudo-element to be positioned */
+    transition: transform 0.3s ease; /* Smooth transition for moving text */
+}
+
+/* Underline effect before scroll */
+nav a::after {
+    content: ''; 
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 1px; /* Underline height */
+    background-color: #f1f1f1;
+    transition: width 0.3s ease; /* Smooth transition for underline */
+}
+/* On hover before scroll, the underline appears */
+nav a:hover::after {
+    width: 100%; /* Full width of the underline */
+}
+
+/* No underline after scroll, but text moves slightly up */
+nav a.scrolled-hover:hover {
+    transform: translateY(-5px); /* Move text slightly up */
+}
+
+/* No color change on hover */
+nav a:hover {
+    color: inherit; /* Keep the text color the same */
+}
+
+/* Remove underline after scroll */
+nav a.scrolled-hover::after {
+    content: none; /* Remove the underline */
+}
+
+.menu-icon {
+    transition: fill 0.3s ease;
+    fill: #ffffff; 
+}
+
+.nav-panel.scrolled .menu-icon {
+    fill: black;  
+}
+
+/* Sidebar initial style */
+.sidebar {
+    position: fixed;
+    top: 0;
+    right: -250px; /* Start off-screen */
+    height: 100vh;
+    width: 250px;
+    z-index: 999;
+    background-color: rgba(255, 255, 255, 0.307);
+    backdrop-filter: blur(5px);
+    box-shadow: -10px 0 -10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    transition: transform 0.5s ease-in-out; /* Smooth transition */
+    color: black; /* Set text color to black */
+}
+.sidebar li {
+    width: 100%;
+}
+
+.sidebar a {
+    width: 100%;
+}
+/* When the sidebar is active (shown), slide it in */
+.sidebar.active {
+    transform: translateX(-250px); /* Move the sidebar into view */
+}
+
+/* Prevent scrolling when sidebar is open */
+body.sidebar-active {
+    overflow: hidden;
+}
+
+.menu-button {
+    display: none;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+
+@media(max-width: 400px) {
+    .sidebar {
+        width: 100%;
+    }
+}
+
+
+
+/*mine*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.carousel-container {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    overflow: hidden;
+}
+
+
+header .banner {
+    color: #ffffff;
+    text-align: center;
+    padding: 80px;
+    background-image: linear-gradient(to bottom, rgba(150, 0, 0, 0.2), rgba(150, 0, 0, 0.7)), url('events&festival-pics/Bg1.jpg');
+    background-size: cover; 
+    background-position: center center; 
+    background-repeat: no-repeat;  
+
+}
+
+ 
+header h1 {
+    font-size: 3.3rem;
+    margin-left: 40px;
+    margin-right: 40px;
+}
+
+header p {
+    text-align: center;
+    font-size: 1.2rem;
+    margin-left: 40px;
+    margin-right: 40px;
+}
+
+main {
+    padding: 80px;
+}
+
+
+.festival {
+    margin-bottom: 30px;
+}
+
+.festival h2 {
+    font-size: 2.6rem;
+    margin-bottom: 15px;
+    color: #000000;
+    text-align: left;
+}
+
+.festival .card {
+    display: flex;
+    flex-direction: column; 
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    transition: transform 0.5s ease;
+    width: 100%; 
+    height: 100%; 
+    max-width: 100%; 
+}
+
+.festival .card:hover {
+    transform: scale(1.02);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.festival .card img {
+    width: 100%; 
+    height: 30%; 
+    object-fit: cover; 
+}
+
+.festival .card_content {
+    padding: 20px;
+    flex: 1; 
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; 
+}
+
+.festival .card_content h3 {
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+}
+
+.festival .card_content p {
+    margin-bottom: 10px;
+    font-size: 1.4rem;
+    color: #444;
+}
+
+.festival .card_content .date {
+    font-weight: bold;
+    color: #000000;
+    font-size: 1.1rem;
+}
+
+
+.notable_events {
+    margin-bottom: 30px;
+}
+
+.notable_events h2 {
+    font-size: 2.6rem;
+    margin-bottom: 15px;
+    color: #000000;
+}
+
+.events_grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+    gap: 30px;
+}
+
+.event_card {
+    text-decoration: none;
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.5s ease;
+}
+
+.event_card:hover{
+    transform: scale(1.02);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.event_card img {
+    width: 120%;
+    height: 300px;
+    object-fit: cover;
+}
+
+.event_card .card_content {
+    padding: 15px;
+}
+
+.event_card .card_content h3 {
+    color: #000000;
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    text-shadow: black;
+}
+
+.event_card .card_content p {
+    margin-bottom: 10px;
+    color: #444;
+}
+
+.event_card .card_content .date {
+    margin-top: 20px;
+    font-weight: bold;
+    color: #000000;
+}
+
+.Foot{
+    color: #ffffff;
+    font-size: 0.9rem;
+    text-align: center;
+    background-color: #073B4C;
+    padding: 30px;
+}
+
+
+@media all and (max-width: 768px) {
+    header h1 {
+        font-size: 3.3rem;
+    }
+
+    .festival .card {
+        flex-direction: column;
+    }
+
+    .festival .card img {
+        max-width: 100%;
+    }
+
+    .Foot{
+        font-size: 0.9rem;
+    }
+}
+
+@media(max-width: 800px) {
+    .hideOnMobile {
+        display: none;
+    }
+    .menu-button {
+        display: block;
+    }
+    .image-container {
+        text-align: center;
+    }
+    .image-wrapper {
+        width: 100%;
+        padding: 0px 5%;
+        padding-bottom: 20px;
+    }
+    .image-text {
+        width: 80%;
+        padding: 0px 10%;
+        padding-bottom: 20px;
+    }
+}

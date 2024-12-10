@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title style="font-family: 'Poppins', Arial, Helvetica, sans-serif;">Hello, Cebu!</title>
+    <link rel="icon" href="favicon2.png" type="image/x-icon">
+    <link rel="stylesheet" href="styleEvents.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/645a3a0762.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <nav class="nav-panel">
+        <img src="general-pics/logo.png">
+        <ul class="sidebar">
+            <li onclick=hideSidebar()><a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#5f6368"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg></a></li>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="cuisine.html">Cuisine</a></li>
+            <li><a href="attractions.html">Attractions</a></li>
+            <li><a href="events-festival.html">Events</a></li>
+            <li><a href="about-us.html">About Us</a></li>
+            <li><a href="team.html">Team</a></li>
+        </ul>
+
+        <ul>
+            <li><a class="hideOnMobile" href="index.html">Home</a></li>
+            <li><a class="hideOnMobile" href="cuisine.html">Cuisine</a></li>
+            <li><a class="hideOnMobile" href="attractions.html">Attractions</a></li>
+            <li><a class="hideOnMobile" href="events-festival.html">Events</a></li>
+            <li><a class="hideOnMobile" href="about-us.html">About Us</a></li>
+            <li><a class="hideOnMobile" href="team.html">Team</a></li>
+            <li class="menu-button" onclick=showSidebar()><a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#5f6368"><path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/></svg></a></li>
+        </ul>
+    </nav>
+    <header>
+        <div class="banner">
+            <h1>Gabii sa Kabilin: A Night of Heritage and Celebration in Cebu</h1>
+        </div>
+    </header>
+
+    <main>
+        <section class="F_Section">
+            <h2>About the event</h2>
+            <div class="F_Div">
+                <img src="events&festival-pics/GabiPic1.jpg" alt="Gabi Sa Kabilin">
+                <p>
+                    <p>
+                        Gabii sa Kabilin, which translates to "Night of Heritage," is a unique cultural event in 
+                        Cebu that allows participants to explore the city’s rich history and heritage. 
+                        Organized by the Ramon Aboitiz Foundation Inc. (RAFI), this event provides access to museums, 
+                        heritage sites, and cultural landmarks, all open late into the evening. Visitors enjoy exhibits, 
+                        performances, traditional food, and interactive activities that highlight Cebu’s history, arts, 
+                        and traditions. The event is designed to immerse people in the region’s cultural legacy in a festive, 
+                        educational, and community-oriented atmosphere.
+                    </p>
+                </p>
+            </div>
+        </section>
+
+        <section class="S_Section">
+            <div class="S_Div">
+                <img src="events&festival-pics/Gab.png" alt="Gabi Sa Kabilin">
+                <div class="S_Content">
+                    <div class="S_D">
+                        <h2>Time and Date:</h2>
+                        <p>
+                            Gabii sa Kabilin is an annual event held on the <b>last Friday of May,</b> coinciding with the 
+                            National Heritage Month celebrations. 
+                            Activities typically run from 6:00 PM to midnight.
+                        </p>
+                    </div>
+                    <div class="S_D">
+                        <h2>Location: </h2>
+                        <p>
+                            Key venues include Museo Sugbo, Casa Gorordo Museum, Fort San Pedro, and various ancestral homes and churches. 
+                            Participants typically use an all-access pass to visit these sites.
+                
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+       
+    </main>
+    
+    <footer>
+        <div class="Foot">
+            <p>
+                &copy; Cebu City. All Rights Reserved. Privacy Policy | Terms of Service
+            </p>
+        </div>
+    </footer>
+    <script>
+        window.onscroll = function() {
+    var navPanel = document.querySelector('.nav-panel');
+    
+    if (window.scrollY > window.innerHeight) {
+        navPanel.classList.add('scrolled');  // Add 'scrolled' class when scrolling down
+    } else {
+        navPanel.classList.remove('scrolled');  // Remove 'scrolled' class when back to top
+    }
+    };
+// for the sidebar
+function showSidebar() {
+    event.preventDefault();
+    const sidebar = document.querySelector('.sidebar');
+
+    sidebar.classList.add('active');
+}
+
+function hideSidebar() {
+    event.preventDefault();
+    const sidebar = document.querySelector('.sidebar');
+
+    sidebar.classList.remove('active');
+}
+    </script>
+</body>
+</html>

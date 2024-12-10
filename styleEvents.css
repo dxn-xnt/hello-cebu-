@@ -1,0 +1,341 @@
+body {
+    font-family: 'Poppins', Arial, Helvetica, sans-serif;
+    margin: 0;
+    width: 100%;
+    height: 100vh;
+}
+body::-webkit-scrollbar {
+    display: none; /* Webkit browsers like Chrome and Safari */
+}
+
+.nav-panel {
+    z-index: 9999;
+    position: fixed;
+    top: 0; 
+    width: 100%; 
+    display: flex; 
+}
+
+.nav-panel {
+    z-index: 999;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    display: flex;
+    transition: background-color 0.3s ease, color 0.3s ease; 
+}
+.nav-panel img{
+    height: 60px;
+    width: auto;
+    position: absolute;
+    left: 2%;
+    top: -5px;
+}
+nav {
+    background-color: rgba(0, 0, 0, 0.20);
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.40), rgba(0, 0, 0, 0.20), rgba(0, 0, 0, 0.00));
+    color: white; 
+}
+
+.nav-panel.scrolled {
+    background-color: white; 
+    background: white; 
+    color: black; 
+
+}
+
+nav ul {
+    width: 100%;
+    list-style: none;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+nav li {
+    height: 50px;
+}
+
+nav a {
+    height: 100%;
+    padding: 0 20px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    color: inherit; 
+    position: relative; /* Allow the pseudo-element to be positioned */
+    transition: transform 0.3s ease; /* Smooth transition for moving text */
+}
+
+/* Underline effect before scroll */
+nav a::after {
+    content: ''; 
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 1px; /* Underline height */
+    background-color: #f1f1f1;
+    transition: width 0.3s ease; /* Smooth transition for underline */
+}
+/* On hover before scroll, the underline appears */
+nav a:hover::after {
+    width: 100%; /* Full width of the underline */
+}
+
+/* No underline after scroll, but text moves slightly up */
+nav a.scrolled-hover:hover {
+    transform: translateY(-5px); /* Move text slightly up */
+}
+
+/* No color change on hover */
+nav a:hover {
+    color: inherit; /* Keep the text color the same */
+}
+
+/* Remove underline after scroll */
+nav a.scrolled-hover::after {
+    content: none; /* Remove the underline */
+}
+
+.menu-icon {
+    transition: fill 0.3s ease;
+    fill: #ffffff; 
+}
+
+.nav-panel.scrolled .menu-icon {
+    fill: black;  
+}
+
+/* Sidebar initial style */
+.sidebar {
+    position: fixed;
+    top: 0;
+    right: -250px; /* Start off-screen */
+    height: 100vh;
+    width: 250px;
+    z-index: 999;
+    background-color: rgba(255, 255, 255, 0.307);
+    backdrop-filter: blur(5px);
+    box-shadow: -10px 0 -10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    transition: transform 0.5s ease-in-out; /* Smooth transition */
+    color: black; /* Set text color to black */
+}
+.sidebar li {
+    width: 100%;
+}
+
+.sidebar a {
+    width: 100%;
+}
+/* When the sidebar is active (shown), slide it in */
+.sidebar.active {
+    transform: translateX(-250px); /* Move the sidebar into view */
+}
+
+/* Prevent scrolling when sidebar is open */
+body.sidebar-active {
+    overflow: hidden;
+}
+.menu-button {
+    display: none;
+}
+.sidebar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 250px;
+    z-index: 999;
+    background-color: rgba(255, 255, 255, 0.307);
+    backdrop-filter: blur(5px);
+    box-shadow: -10px 0 -10px rgba(0, 0, 0, 0.1);
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+.sidebar li {
+    width: 100%;
+}
+
+.sidebar a {
+    width: 100%;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header .banner {
+    color: #ffffff;
+    text-align: center;
+    padding: 50px;
+    background-image: linear-gradient(to bottom, rgba(150, 0, 0, 0.2), rgba(150, 0, 0, 0.7)), url('events&festival-pics/prrd-cclex-1.webp');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+
+
+header h1 {
+    font-size: 3.3rem;
+    padding: 8% 0px;
+    margin: 0px 10%;
+}
+
+header p {
+    text-align: center;
+    font-size: 1.4rem;
+    margin-left: 40px;
+    margin-right: 40px;
+}
+
+main section {
+    margin: 2rem auto;
+    padding: 0.8rem;
+    max-width: 1200px;
+    background-color: #ffffff;
+    border-radius: 10px;
+}
+
+.F_Section h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    color: #000000;
+}
+
+.F_Div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.F_Div img {
+    display: flex;
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    height: auto;
+}
+
+.F_Div p {
+    font-size: 1.2rem;
+    line-height: 1.5;
+    color: #444;
+    margin: 0; 
+    text-align: justify;
+}
+
+.S_Section {
+    padding: 30px;
+    border-radius: 10px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.S_Div {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    align-items: flex-start; 
+}
+
+.S_Div img {
+    flex: 1; 
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.S_Content {
+    margin-top: 40px;
+    flex: 2; 
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+.S_D h2 {
+    font-size: 1.4rem;
+    color: #000000;
+    margin: 0; 
+}
+
+.S_D p {
+    font-size: 1.2rem;
+    line-height: 1.5;
+    color: #444;
+    margin: 0; 
+    text-align: justify;
+}
+
+.Foot{
+    color: #ffffff;
+    font-size: 0.9rem;
+    text-align: center;
+    background-color: #073B4C;
+    padding: 10px;
+}
+
+@media all and (max-width: 768px) {
+    .F_Section {
+        padding: 1.5rem;
+    }
+
+    .F_Section h2 {
+        font-size: 1.5rem;
+    }
+
+    .F_Div p {
+        font-size: 1rem;
+        line-height: 1.5;
+    }
+
+    .S_Div {
+        flex-direction: column; 
+    }
+
+    .S_Div img {
+        width: 100%; 
+    }
+
+    .S_Content {
+        width: 100%; 
+    }
+
+    .Foot{
+        font-size: 0.9rem;
+    }
+}
+
+@media(max-width: 800px) {
+    .hideOnMobile {
+        display: none;
+    }
+    .menu-button {
+        display: block;
+    }
+    .image-container {
+        text-align: center;
+    }
+    .image-wrapper {
+        width: 100%;
+        padding: 0px 5%;
+        padding-bottom: 20px;
+    }
+    .image-text {
+        width: 80%;
+        padding: 0px 10%;
+        padding-bottom: 20px;
+    }
+}

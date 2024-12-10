@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title style="font-family: 'Poppins', Arial, Helvetica, sans-serif;">Hello, Cebu!</title>
+    <link rel="icon" href="favicon2.png" type="image/x-icon">
+    <link rel="stylesheet" href="styleEvents.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/645a3a0762.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <nav class="nav-panel">
+        <img src="general-pics/logo.png">
+        <ul class="sidebar">
+            <li onclick=hideSidebar()><a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#5f6368"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg></a></li>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="cuisine.html">Cuisine</a></li>
+            <li><a href="attractions.html">Attractions</a></li>
+            <li><a href="events-festival.html">Events</a></li>
+            <li><a href="about-us.html">About Us</a></li>
+            <li><a href="team.html">Team</a></li>
+        </ul>
+
+        <ul>
+            <li><a class="hideOnMobile" href="index.html">Home</a></li>
+            <li><a class="hideOnMobile" href="cuisine.html">Cuisine</a></li>
+            <li><a class="hideOnMobile" href="attractions.html">Attractions</a></li>
+            <li><a class="hideOnMobile" href="events-festival.html">Events</a></li>
+            <li><a class="hideOnMobile" href="about-us.html">About Us</a></li>
+            <li><a class="hideOnMobile" href="team.html">Team</a></li>
+            <li class="menu-button" onclick=showSidebar()><a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#5f6368"><path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/></svg></a></li>
+        </ul>
+    </nav>
+    <header>
+        <div class="banner">
+            <h1> Cebu Business Month: Where Commerce Meets Celebration</h1>
+        </div>
+    </header>
+
+    <main>
+        <section class="F_Section">
+            <h2>About the event</h2>
+            <div class="F_Div">
+                <img src="events&festival-pics/BusineesPic1.jpg" alt="Business">
+                <p>
+                    <p>
+                        Cebu Business Month, spearheaded by the Cebu Chamber of Commerce and Industry (CCCI), 
+                        is an annual celebration that promotes business growth and economic development in Cebu. 
+                        The event serves as a platform for networking, collaboration, and showcasing innovation across 
+                        various industries, including information technology, tourism, entrepreneurship, and creative sectors. 
+                        Activities include business summits, trade fairs, expos, seminars, and workshops aimed at fostering 
+                        partnerships and addressing emerging challenges in the business landscape. CBM also emphasizes 
+                        sustainability and global competitiveness, making it a significant event for entrepreneurs and industry leaders.
+                    </p>
+                </p>
+            </div>
+        </section>
+        
+        <section class="S_Section">
+            <div class="S_Div">
+                <img src="events&festival-pics/Bu.png" alt="business">
+                <div class="S_Content">
+                    <div class="S_D">
+                        <h2>Time and Date:</h2>
+                        <p>
+                            Cebu Business Month (CBM) is celebrated throughout the <b>entire month of June,</b>
+                            with activities and events scheduled on various dates within the month.
+                
+                        </p>
+                    </div>
+                    <div class="S_D">
+                        <h2>Location: </h2>
+                        <p>
+                            CBM events are held in Cebu City and nearby areas, with key venues including 
+                            the Cebu International Convention Center, SM Seaside City Cebu, and Ayala Center Cebu.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    
+    </main>
+
+    <footer>
+        <div class="Foot">
+            <p>
+                &copy; Cebu City. All Rights Reserved. Privacy Policy | Terms of Service
+            </p>
+        </div>
+    </footer>
+    <script>
+        window.onscroll = function() {
+    var navPanel = document.querySelector('.nav-panel');
+    
+    if (window.scrollY > window.innerHeight) {
+        navPanel.classList.add('scrolled');  // Add 'scrolled' class when scrolling down
+    } else {
+        navPanel.classList.remove('scrolled');  // Remove 'scrolled' class when back to top
+    }
+    };
+// for the sidebar
+function showSidebar() {
+    event.preventDefault();
+    const sidebar = document.querySelector('.sidebar');
+
+    sidebar.classList.add('active');
+}
+
+function hideSidebar() {
+    event.preventDefault();
+    const sidebar = document.querySelector('.sidebar');
+
+    sidebar.classList.remove('active');
+}
+    </script>
+</body>
+</html>
