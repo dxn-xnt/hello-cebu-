@@ -1,13 +1,3 @@
-body {
-    font-family: 'Poppins', Arial, Helvetica, sans-serif;
-    margin: 0;
-    width: 100%;
-    height: 100vh;
-}
-body::-webkit-scrollbar {
-    display: none; /* Webkit browsers like Chrome and Safari */
-}
-
 .nav-panel {
     z-index: 9999;
     position: fixed;
@@ -107,97 +97,40 @@ nav a.scrolled-hover::after {
     fill: black;  
 }
 
-/* Ensure the sidebar takes up full height and adapts properly */
+/* Sidebar initial style */
 .sidebar {
     position: fixed;
     top: 0;
-    right: 0; /* Align to the right edge initially */
+    right: -250px; /* Start off-screen */
     height: 100vh;
-    width: 100%; /* Full width on small screens */
+    width: 250px;
     z-index: 999;
-    background-color: rgba(255, 255, 255, 0.9); /* Slightly opaque for better visibility */
+    background-color: rgba(255, 255, 255, 0.307);
     backdrop-filter: blur(5px);
     box-shadow: -10px 0 -10px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     justify-content: flex-start;
-    transition: transform 0.5s ease-in-out;
-    overflow-y: auto; /* Enable scrolling if content overflows */
+    transition: transform 0.5s ease-in-out; /* Smooth transition */
+    color: black; /* Set text color to black */
+}
+.sidebar li {
+    width: 100%;
 }
 
-/* Adjust sidebar for small screens */
-@media (max-width: 768px) {
-    .sidebar {
-        width: 80%; /* Adjust width for smaller screens */
-    }
-}
-
-/* Style navigation links inside the sidebar */
 .sidebar a {
     width: 100%;
-    padding: 15px 20px; /* Add spacing for better usability */
-    text-decoration: none;
-    font-size: 1rem;
-    color: black;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-    transition: background-color 0.3s ease, color 0.3s ease;
+}
+/* When the sidebar is active (shown), slide it in */
+.sidebar.active {
+    transform: translateX(-250px); /* Move the sidebar into view */
 }
 
-/* Hover effects for sidebar links */
-.sidebar a:hover {
-    background-color: rgba(0, 0, 0, 0.1);
-    color: #333;
-}
-
-/* Body style when sidebar is active */
+/* Prevent scrolling when sidebar is open */
 body.sidebar-active {
-    overflow: hidden; /* Prevent scrolling when the sidebar is open */
+    overflow: hidden;
 }
-
-/* Button to open/close sidebar */
-.menu-icon {
-    cursor: pointer;
-    fill: #ffffff;
-    transition: fill 0.3s ease;
-}
-
-.nav-panel.scrolled .menu-icon {
-    fill: black;
-}
-
-/* Ensure navigation adapts to small screens */
-.nav-panel {
-    z-index: 9999;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    display: flex;
-    justify-content: space-between; /* Spread out elements */
-    align-items: center;
-    padding: 10px 20px; /* Add some spacing */
-    background-color: rgba(0, 0, 0, 0.2);
-    transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-.nav-panel.scrolled {
-    background-color: white;
-    color: black;
-}
-
-/* Adjust navigation for small screens */
-@media (max-width: 768px) {
-    nav ul {
-        flex-direction: column;
-        display: none; /* Hide by default */
-        background-color: rgba(255, 255, 255, 0.9);
-    }
-
-    nav ul.active {
-        display: flex; /* Show when active */
-    }
-}
-
 
 
 /* Teaser Pictures */
