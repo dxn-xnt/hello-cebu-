@@ -542,7 +542,8 @@ body.sidebar-active {
 }
 .call-for-action img{
     aspect-ratio: inherit;
-    height: 400px;
+    max-height: 400px;
+    min-height: 300px;
     width: auto;
 }
 
