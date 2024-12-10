@@ -4,26 +4,33 @@ const slides = document.querySelectorAll('.carousel-slide');
 const indicators = document.querySelectorAll(".indicator");
 
 const totalSlides = slides.length;
-// Get the nav panel element
-const navPanel = document.querySelector('.nav-panel');
-
-// Nav Bar
-function showSidebar() {
-    const sidebar = document.querySelector('.sidebar')
-    sidebar.style.display = 'flex'
-}
-function hideSidebar() {
-    const sidebar = document.querySelector('.sidebar')
-    sidebar.style.display = 'none'
-}
-// Listen for the scroll event
-window.addEventListener('scroll', () => {
-    if (window.scrollY > window.innerHeight) { // If scrolled past the height of the viewport
-        navPanel.classList.add('scrolled'); // Add the 'scrolled' class
+  // for the navbar
+window.onscroll = function() {
+    var navPanel = document.querySelector('.nav-panel');
+    
+    if (window.scrollY > window.innerHeight) {
+        navPanel.classList.add('scrolled');  // Add 'scrolled' class when scrolling down
     } else {
-        navPanel.classList.remove('scrolled'); // Remove the 'scrolled' class when at the top
+        navPanel.classList.remove('scrolled');  // Remove 'scrolled' class when back to top
     }
-});
+};
+// for the sidebar
+function showSidebar() {
+    event.preventDefault();
+    const sidebar = document.querySelector('.sidebar');
+
+    sidebar.classList.add('active');
+}
+
+function hideSidebar() {
+    event.preventDefault();
+    const sidebar = document.querySelector('.sidebar');
+
+    sidebar.classList.remove('active');
+}
+
+
+
 
 
 function moveSlide(step) {
