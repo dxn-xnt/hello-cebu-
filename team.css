@@ -1,0 +1,437 @@
+body {
+    font-family: 'Poppins', Arial, Helvetica, sans-serif;
+    margin: 0;
+    width: 100%;
+    height: 100vh;
+}
+body::-webkit-scrollbar {
+    display: none; /* Webkit browsers like Chrome and Safari */
+}
+
+
+.nav-panel {
+    z-index: 9999;
+    position: fixed;
+    top: 0; 
+    width: 100%; 
+    display: flex; 
+}
+
+.nav-panel {
+    z-index: 999;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    display: flex;
+    transition: background-color 0.3s ease, color 0.3s ease; 
+}
+.nav-panel img{
+    height: 60px;
+    width: auto;
+    position: absolute;
+    left: 2%;
+    top: -5px;
+}
+nav {
+    background-color: rgba(0, 0, 0, 0.20);
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.40), rgba(0, 0, 0, 0.20), rgba(0, 0, 0, 0.00));
+    color: white; 
+}
+
+.nav-panel.scrolled {
+    background-color: white; 
+    background: white; 
+    color: black; 
+
+}
+
+nav ul {
+    width: 100%;
+    list-style: none;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+nav li {
+    height: 50px;
+}
+
+nav a {
+    height: 100%;
+    padding: 0 20px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    color: inherit; 
+    position: relative; /* Allow the pseudo-element to be positioned */
+    transition: transform 0.3s ease; /* Smooth transition for moving text */
+}
+
+/* Underline effect before scroll */
+nav a::after {
+    content: ''; 
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 1px; /* Underline height */
+    background-color: #f1f1f1;
+    transition: width 0.3s ease; /* Smooth transition for underline */
+}
+/* On hover before scroll, the underline appears */
+nav a:hover::after {
+    width: 100%; /* Full width of the underline */
+}
+
+/* No underline after scroll, but text moves slightly up */
+nav a.scrolled-hover:hover {
+    transform: translateY(-5px); /* Move text slightly up */
+}
+
+/* No color change on hover */
+nav a:hover {
+    color: inherit; /* Keep the text color the same */
+}
+
+/* Remove underline after scroll */
+nav a.scrolled-hover::after {
+    content: none; /* Remove the underline */
+}
+
+.menu-icon {
+    transition: fill 0.3s ease;
+    fill: #ffffff; 
+}
+
+.nav-panel.scrolled .menu-icon {
+    fill: black;  
+}
+
+/* Sidebar initial style */
+.sidebar {
+    position: fixed;
+    top: 0;
+    right: -250px; /* Start off-screen */
+    height: 100vh;
+    width: 250px;
+    z-index: 999;
+    background-color: rgba(255, 255, 255, 0.307);
+    backdrop-filter: blur(5px);
+    box-shadow: -10px 0 -10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    transition: transform 0.5s ease-in-out; /* Smooth transition */
+    color: black; /* Set text color to black */
+}
+.sidebar li {
+    width: 100%;
+}
+
+.sidebar a {
+    width: 100%;
+}
+/* When the sidebar is active (shown), slide it in */
+.sidebar.active {
+    transform: translateX(-250px); /* Move the sidebar into view */
+}
+
+/* Prevent scrolling when sidebar is open */
+body.sidebar-active {
+    overflow: hidden;
+}
+
+.menu-button {
+    display: none;
+    color: white;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+
+@media(max-width: 400px) {
+    .sidebar {
+        width: 100%;
+    }
+}
+
+
+
+@media(max-width: 800px) {
+    .hideOnMobile {
+        display: none;
+    }
+    .menu-button {
+        display: block;
+    }
+    .image-container {
+        text-align: center;
+    }
+    .image-wrapper {
+        width: 100%;
+        padding: 0px 5%;
+        padding-bottom: 20px;
+    }
+    .image-text {
+        width: 80%;
+        padding: 0px 10%;
+        padding-bottom: 20px;
+    }
+}
+
+
+
+
+header .banner {
+    color: #ffffff;
+    text-align: center;
+    padding: 7%;
+    background-image: linear-gradient(to bottom, rgba(162, 0, 38, 0.4), rgba(162, 0, 38, 0.9)), url('/general-pics/Ctu_bg.png');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+
+header h1 {
+    margin-left: 40px;
+    margin-right: 40px;
+}
+
+header p {
+    text-align: center;
+    margin-left: 40px;
+    margin-right: 40px;
+    color: white;
+    font-size: 18px;
+}
+
+.section-header {
+    padding: 30px 0px;
+    width: 100%;
+    text-align: center;
+}
+
+.section-header h1{
+    padding-left: 6%;
+    padding-bottom: 10px;
+}
+/*Recommended Restaurants*/
+.recommended-restaurants {
+    margin: 40px 0px;
+    padding: 50px 0px;
+    padding-top: 0px;
+}
+.recommended-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3%;
+    justify-content: center;
+    padding: 20px 0px;
+    background: linear-gradient(to bottom, rgba(162, 0, 38, 0.2), rgba(162, 0, 38, 0.7));
+
+}
+.restaurant {
+    position: relative;
+    height: 260px;
+    width: 250px;
+    padding: 10px 0px;
+    overflow: hidden; 
+    cursor: pointer;
+} 
+.restaurant img{
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+    transition: transform 0.3s ease;
+}
+.restaurant:hover img {
+    transform: scale(1.1); /* Slightly zooms the image on hover */
+}
+
+.restaurant-description {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(255, 255, 255, 0.7); /* Dark background with transparency */
+    color: black;
+    padding: 20px;
+    transform: translateY(100%); /* Initially hidden below the container */
+    transition: transform 0.3s ease; /* Smooth slide-in effect */
+}
+
+.restaurant:hover .restaurant-description {
+    transform: translateY(0); /* Slide up the description on hover */
+}
+.restaurant-description a, p, h3{
+    text-decoration: none;
+    padding: 0px 0px;
+    color: #000000;
+}
+.restaurant-description p{
+    font-size: 15px;
+    opacity:80%;
+}
+.restaurant-description h3 {
+    margin-left: 0px;
+}
+.restaurant-description a{
+    margin-top: auto;
+    padding-bottom: 10px;
+    text-decoration: underline;
+}
+.social-link {
+    list-style: none;
+    padding: 10px 0px;
+    justify-content: center;
+    justify-items: center;
+}
+.social-link li{
+    text-decoration: none;
+    gap: 20px;
+}
+.social-link a{
+    font-size: 13px;
+    text-decoration: none;
+    gap: 20px;
+}
+.social-link i {
+    padding: 0px 5px;
+}
+
+/*About Us*/
+.footer {
+    color: #ffffff;
+    text-align: center;
+    background-color: #960000;
+    padding: 10px 0px;
+    width: 100%;
+    margin: 0px auto;
+}
+.footer p{
+    width: 100%;
+    padding: 0px 0px;
+    margin: 0px;
+    color: #ffffff;
+}
+
+
+.Ctu {
+    padding: 40px 20px;
+
+}
+
+.Ctu_container {
+    display: flex;
+    flex-wrap: wrap; 
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 20px 0px;
+    box-sizing: border-box;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+
+.logo {
+    flex: 1;
+    text-align: center; 
+}
+
+.logo img {
+    max-width: 90%;
+    height: auto;
+    border-radius: 10px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+.content {
+    flex: 1;
+    justify-content: center;
+    width: 100%;
+}
+
+.content img {
+    width: 80px;
+    margin-bottom: None;
+    justify-self: center;
+}
+
+.content h2 {
+    text-align: justify;
+    font-size: 2em;
+    color: #333;
+}
+
+.content p {
+    padding: 20px;
+    text-align: justify;
+    font-size: 1.2em;
+    line-height: 1.6;
+    color: #444;
+}
+
+
+@media all and (max-width: 768px) {
+    #team h2 {
+        font-size: 2em;
+    }
+
+    .team-signature h3 {
+        font-size: 1.2em;
+    }
+
+    .team-signature p {
+        font-size: 0.9em;
+    }
+
+    .team-overlay h3 {
+        font-size: 1.2em;
+    }
+
+    .team-overlay p {
+        font-size: 0.9em;
+    }
+
+    .team-overlay .social-link li a {
+        font-size: 1em;
+    }
+
+    .owl-carousel .item {
+        flex: 1 1 48%; 
+    }
+
+    .Ctu_container {
+        flex-direction: column; 
+        text-align: center; 
+    }
+
+    .logo img {
+        width: 90%; 
+        margin: 0 auto 20px;
+    }
+
+    .content {
+        margin-left: 0;
+    }
+
+    .content h2 {
+        font-size: 1.8em;
+    }
+
+    .content p {
+        font-size: 1em;
+    }
+    .Foot{
+        font-size: 0.9rem;
+    }
+}
+
