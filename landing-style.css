@@ -101,35 +101,40 @@ nav a.scrolled-hover::after {
 .sidebar {
     position: fixed;
     top: 0;
-    right: -250px; /* Start off-screen */
+    right: -100%; /* Start completely off-screen */
     height: 100vh;
-    width: 250px;
+    width: 250px; /* Adjust as needed */
     z-index: 999;
-    background-color: rgba(255, 255, 255, 0.307);
+    background-color: rgba(255, 255, 255, 0.9);
     backdrop-filter: blur(5px);
-    box-shadow: -10px 0 -10px rgba(0, 0, 0, 0.1);
+    box-shadow: -10px 0 10px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     justify-content: flex-start;
     transition: transform 0.5s ease-in-out; /* Smooth transition */
-    color: black; /* Set text color to black */
-}
-.sidebar li {
-    width: 100%;
+    color: black;
+    overflow-y: auto;
 }
 
-.sidebar a {
-    width: 100%;
-}
-/* When the sidebar is active (shown), slide it in */
+/* When the sidebar is active (shown), slide it into view */
 .sidebar.active {
-    transform: translateX(-250px); /* Move the sidebar into view */
+    transform: translateX(-250px); /* Adjust based on the width of the sidebar */
 }
 
 /* Prevent scrolling when sidebar is open */
 body.sidebar-active {
-    overflow: hidden;
+    overflow: hidden; /* Disable page scrolling */
+}
+
+/* Button to open/close sidebar */
+.menu-icon {
+    cursor: pointer;
+    fill: #ffffff;
+    transition: fill 0.3s ease;
+}
+.nav-panel.scrolled .menu-icon {
+    fill: black;
 }
 
 
