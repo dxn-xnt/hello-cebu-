@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        
+        <link rel="stylesheet" href="styles.css"/>
+        <title>WEB PROJECT | CEBU CITY</title>
+    </head>
+    <body>
+        <nav class="nav-panel">
+            <img src="attractions_images/logo.png">
+            <ul class="sidebar">
+                <li onclick=hideSidebar()><a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#5f6368"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg></a></li>
+                <li><a href="landing.html">Home</a></li>
+                <li><a href="cuisine.html">Cuisine</a></li>
+                <li><a href="attractions.html">Attractions</a></li>
+                <li><a href="events-festival.html">Events</a></li>
+                <li><a href="about-us.html">About Us</a></li>
+                <li><a href="team.html">About Us</a></li>
+            </ul>
+    
+            <ul>
+                <li><a class="hideOnMobile" href="landing.html">Home</a></li>
+                <li><a class="hideOnMobile" href="cuisine.html">Cuisine</a></li>
+                <li><a class="hideOnMobile" href="attractions.html">Attractions</a></li>
+                <li><a class="hideOnMobile" href="events-festival.html">Events</a></li>
+                <li><a class="hideOnMobile" href="about-us.html">About Us</a></li>
+                <li><a class="hideOnMobile" href="team.html">Team</a></li>
+                <li class="menu-button" onclick=showSidebar()><a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#5f6368"><path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/></svg></a></li>
+            </ul>
+        </nav>
+
+        <script>
+            // for the navbar
+            window.onscroll = function() {
+                var navPanel = document.querySelector('.nav-panel');
+                
+                if (window.scrollY > window.innerHeight) {
+                    navPanel.classList.add('scrolled');  
+                } else {
+                    navPanel.classList.remove('scrolled');  
+                }
+            };
+            // for the sidebar
+            function showSidebar() {
+                event.preventDefault();
+                const sidebar = document.querySelector('.sidebar');
+
+                sidebar.classList.add('active');
+            }
+
+            function hideSidebar() {
+                event.preventDefault();
+                const sidebar = document.querySelector('.sidebar');
+
+                sidebar.classList.remove('active');
+            }
+        </script>
+
+        <section class="first-view">
+            <div class="first-view-image">
+                <img src="attractions_images/cclex.jpg" alt="CEBU CITY">  
+            </div>
+            <div class="text-content">
+                <h1>CEBU CITY</h1>
+                <p>Discover the vibrant heart of the Queen City of the South—Cebu City, 
+                    where history meets modern wonders, and every corner tells a story 
+                    worth exploring!</p>
+            </div>
+
+        <div class="line-box"></div>
+        </section>
+
+        <section class="explore">
+            <div class="what-to-explore">
+                <h1>See where to explore!</h1>
+            </div>
+            <section class="cards">
+                <a href="https://maps.app.goo.gl/ikaEFSpjhfAGL1Yp7" class="card-link" target="_blank">
+                    <div class="bg-card">
+                        <img src="attractions_images/sto_nino.jpg" alt="Place 1">
+                        <div class="hover-text">Sto. Niño Basilica</div>
+                        <p class="card-description">A historical church in Cebu known for its religious significance.</p>
+                        <div class="click-text">Click to view map</div>
+                    </div>
+                </a>
+                <a href="https://maps.app.goo.gl/9NanLiPsPiKuBTMu6" class="card-link" target="_blank">
+                    <div class="bg-card">
+                        <img src="attractions_images/magellan.png" alt="Place 2">
+                        <div class="hover-text">Magellan's Cross</div>
+                        <p class="card-description">A landmark commemorating the arrival of Christianity in the Philippines.</p>
+                        <div class="click-text">Click to view map</div>
+                    </div>
+                </a>
+                <a href="https://www.google.com/maps/place/Location3" class="card-link" target="_blank">
+                    <div class="bg-card">
+                        <img src="attractions_images/cathedral.jpg" alt="Place 3">
+                        <div class="hover-text">Cebu Metropolitan Cathedral</div>
+                        <p class="card-description">A prominent cathedral showcasing Spanish colonial architecture.</p>
+                        <div class="click-text">Click to view map</div>
+                    </div>
+                </a>
+                <a href="https://maps.app.goo.gl/AK6BMZzDefjKrgHj7" class="card-link" target="_blank">
+                    <div class="bg-card">
+                        <img src="attractions_images/sm_seaside.jpg" alt="Place 4">
+                        <div class="hover-text">SM Seaside</div>
+                        <p class="card-description">One of the largest shopping malls in Cebu with a wide variety of stores.</p>
+                        <div class="click-text">Click to view map</div>
+                    </div>
+                </a>
+                <a href="https://maps.app.goo.gl/Seyv2SneJ5wnBFHo9" class="card-link" target="_blank">
+                    <div class="bg-card">
+                        <img src="attractions_images/plaza.jpg" alt="Place 5">
+                        <div class="hover-text">Cebu Plaza</div>
+                        <p class="card-description">A central area offering beautiful landscapes and leisure activities.</p>
+                        <div class="click-text">Click to view map</div>
+                    </div>
+                </a>
+                <a href="https://maps.app.goo.gl/3sZKgR9yKZsq6nJa8" class="card-link" target="_blank">
+                    <div class="bg-card">
+                        <img src="attractions_images/it_park.jpg" alt="Place 6">
+                        <div class="hover-text">IT Park</div>
+                        <p class="card-description">A modern tech hub filled with restaurants and office buildings.</p>
+                        <div class="click-text">Click to view map</div>
+                    </div>
+                </a>
+                <a href="https://maps.app.goo.gl/RBcXQitrncHoG46t6" class="card-link" target="_blank">
+                    <div class="bg-card">
+                        <img src="attractions_images/ayala.jpg" alt="Place 7">
+                        <div class="hover-text">Ayala Center</div>
+                        <p class="card-description">A popular shopping center offering high-end retail brands and entertainment options.</p>
+                        <div class="click-text">Click to view map</div>
+                    </div>
+                </a>
+                <a href="https://maps.app.goo.gl/iaGcwvoh1Yr6BQgu7" class="card-link" target="_blank">
+                    <div class="bg-card">
+                        <img src="attractions_images/robinsons.jpg" alt="Place 8">
+                        <div class="hover-text">Robinsons Galleria Cebu</div>
+                        <p class="card-description">A modern shopping mall that offers a wide range of services and products.</p>
+                        <div class="click-text">Click to view map</div>
+                    </div>
+                </a>
+            </section>
+        </section>
+        
+
+        <footer>
+            <div class="Foot">
+                <p>
+                    &copy; Cebu City. All Rights Reserved. Privacy Policy | Terms of Service
+                </p>
+            </div>
+        </footer>
+
+
+        <script src="effects.js"></script>
+
+        
+    </body>
+</html>
