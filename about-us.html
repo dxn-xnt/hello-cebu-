@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="about-us.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="icon" href="favicon2.png" type="image/png">
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <title>About us</title>
+
+    <script>// Section 1: Carousel Functionality
+        let slideIndex = 0;
+        const slides = document.querySelectorAll('.carousel-slide');
+        const indicators = document.querySelectorAll(".indicator");
+
+        const totalSlides = slides.length;
+        // for the navbar
+        window.onscroll = function () {
+            var navPanel = document.querySelector('.nav-panel');
+
+            if (window.scrollY > window.innerHeight) {
+                navPanel.classList.add('scrolled');  // Add 'scrolled' class when scrolling down
+            } else {
+                navPanel.classList.remove('scrolled');  // Remove 'scrolled' class when back to top
+            }
+        };
+        // for the sidebar
+        function showSidebar() {
+            event.preventDefault();
+            const sidebar = document.querySelector('.sidebar');
+
+            sidebar.classList.add('active');
+        }
+
+        function hideSidebar() {
+            event.preventDefault();
+            const sidebar = document.querySelector('.sidebar');
+
+            sidebar.classList.remove('active');
+        }
+
+
+
+        function moveSlide(step) {
+            const carousel = document.querySelector('.carousel');
+
+            // Remove transition temporarily to avoid jump when cycling
+            carousel.style.transition = 'none';
+
+            slideIndex += step;
+
+            // Loop to the beginning or end of the slides
+            if (slideIndex >= totalSlides) {
+                slideIndex = 0;
+            } else if (slideIndex < 0) {
+                slideIndex = totalSlides - 1;
+            }
+            indicators.forEach((indicator, i) => {
+                indicator.classList.toggle("active", i === slideIndex);
+            });
+
+            const newTransformValue = -slideIndex * 100;
+            carousel.style.transform = `translateX(${newTransformValue}%)`;
+
+            // Force a reflow to apply smooth transition
+            carousel.offsetHeight; // Trigger reflow
+            setTimeout(() => {
+                carousel.style.transition = 'transform 0.5s ease-in-out';
+            }, 50);
+        }
+
+        // Automatically move to the next slide every 5 seconds
+        setInterval(() => moveSlide(1), 5000);
+
+        // Section 2: Dynamic Outer Container Adjustment
+        const outerContainer = document.getElementById('featuredCuisine');
+        const scrollContainer = document.getElementById('scrollContainer');
+
+        // Adjust the outer container's width dynamically during scroll
+        scrollContainer.addEventListener('scroll', () => {
+            const maxWidth = 1200; // Maximum width
+            const minWidth = 570; // Minimum width
+            const scrollProgress =
+                (scrollContainer.scrollWidth - scrollContainer.scrollLeft - scrollContainer.clientWidth) /
+                (scrollContainer.scrollWidth - scrollContainer.clientWidth);
+
+            const newWidth = minWidth + scrollProgress * (maxWidth - minWidth);
+            outerContainer.style.width = `${Math.min(Math.max(newWidth, minWidth), maxWidth)}px`;
+        });
+
+        // Start with the last div visible
+        scrollContainer.scrollLeft = scrollContainer.scrollWidth;</script>
+
+
+
+
+</head>
+
+<body>
+    <header>
+        <nav class="nav-panel">
+            <img src="About us pics/logo.png">
+            <ul class="sidebar">
+                <li onclick=hideSidebar()><a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="24px"
+                            viewBox="0 -960 960 960" width="24px" fill="#5f6368">
+                            <path
+                                d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z" />
+                        </svg></a></li>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="cuisine.html">Cuisine</a></li>
+                <li><a href="attractions.html">Attractions</a></li>
+                <li><a href="events-festival.html">Events</a></li>
+                <li><a href="about-us.html">About Us</a></li>
+                <li><a href="team.html">Team</a></li>
+            </ul>
+
+            <ul>
+                <li><a class="hideOnMobile" href="index.html">Home</a></li>
+                <li><a class="hideOnMobile" href="cuisine.html">Cuisine</a></li>
+                <li><a class="hideOnMobile" href="attractions.html">Attractions</a></li>
+                <li><a class="hideOnMobile" href="events-festival.html">Events</a></li>
+                <li><a class="hideOnMobile" href="about-us.html">About Us</a></li>
+                <li><a class="hideOnMobile" href="team.html">Team</a></li>
+                <li class="menu-button" onclick=showSidebar()><a href="#"><svg xmlns="http://www.w3.org/2000/svg"
+                            height="24px" viewBox="0 -960 960 960" width="24px" fill="#5f6368">
+                            <path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z" />
+                        </svg></a></li>
+            </ul>
+        </nav>
+
+        <div class="image-container">
+            <img src="Final.jpg" alt="LOGO">
+        </div>
+    </header>
+    <!-- ====== About Us ====== -->
+    <section id="aboutus" class="ptb">
+        <div class="wrapper-aboutus container flex">
+            <div class="aboutus-img">
+                <img src="cityhall.jpg" alt="">
+                <div class="experiense align-center">
+                    <p>City Hall of Cebu</p>
+                </div>
+            </div>
+            <!--/.aboutus-img-->
+            <div class="aboutus-content">
+                <h2>Welcome to the Municipality of Cebu</h2>
+                <h3> Historical Context</h3>
+                <p>Known as the "Queen City of the South," Cebu holds a unique position in the history of the
+                    Philippines. It is recognized as the cradle of Christianity in Asia, being the site where Portuguese
+                    explorer Ferdinand Magellan planted the cross in 1521. This marked the introduction of Catholicism
+                    to the Philippines. Cebu became the first Spanish settlement and the oldest city in the country,
+                    established as a pivotal hub for trade and governance during the Spanish colonial period.</p>
+                <!-- <h3>Cultural Heritage</h3> -->
+                <p>Cebu is a melting pot of diverse cultural influences, blending traditions from its pre-colonial
+                    Austronesian roots with Spanish, Chinese, and modern Filipino elements. The Sinulog Festival,
+                    celebrated
+                    every January in honor of the Santo Niño (Child Jesus), is a testament to Cebu’s vibrant cultural
+                    identity. This grand celebration features colorful street parades, traditional dances, and religious
+                    processions, attracting visitors from all over the world.
+                    <br><br>
+                    <!-- <h3>Economic and Community Development</h3> -->
+                    As a municipality, Cebu has grown into an economic powerhouse. It serves as a hub for business,
+                    trade,
+                    and tourism in the Visayas region, boasting a thriving economy supported by agriculture, fishing,
+                    and an
+                    ever-growing urban sector. Despite its rapid development, Cebu has maintained its charm, preserving
+                    historical landmarks such as Magellan’s Cross, Basilica Minore del Santo Niño, and Fort San Pedro.
+                    <br><br>
+                    <!-- <h3>Natural Beauty and Modern Living</h3> -->
+                    Cebu’s scenic landscapes include pristine beaches, lush mountains, and marine sanctuaries, making it
+                    a
+                    destination for both relaxation and adventure. The municipality also prides itself on being a
+                    harmonious
+                    blend of traditional community values and modern amenities, fostering a sense of belonging among its
+                    residents and visitors..
+                </p>
+            </div>
+
+
+
+            <!--/.aboutus-content-->
+        </div>
+        <br><br>
+        <hr><br><br>
+        <!-- part 2 -->
+        <div class="wrapper-aboutus container flex">
+            <div class="aboutus-content1">
+
+                <h3> Cebu city's Officials </h3>
+                <p>The Mayor of Cebu City, Michael Rama, leads the city with a focus on sustainable development and
+                    transforming Cebu into a "Singapore-like" city through infrastructure projects and public service
+                    improvements. His administration emphasizes urban planning, disaster preparedness, and economic
+                    growth.
+                    <br><br>
+                    The Vice Mayor, Raymond Alvin Neri Garcia is the current Vice Mayor of Cebu City. He previously
+                    served as Acting Mayor after Michael Rama was suspended in 2024. Known for his practical leadership,
+                    Garcia has focused on administrative changes, such as reshuffling department heads and pushing
+                    forward key city projects like the Cebu City Medical Center. He emphasizes the importance of civic
+                    duty and responsible governance for all city employees, regardless of their political affiliations.
+                </p>
+
+                <p>Cebu City's tourism boom can be attributed to the collaborative efforts of local officials who have
+                    driven significant initiatives to attract tourists. Mayor Michael Rama and Vice Mayor Raymond Alvin
+                    Neri Garcia,
+                    along with other leaders, have focused on improving infrastructure, promoting cultural heritage, and
+                    enhancing connectivity.
+                    <br><br>
+                    Mayor Rama's leadership has prioritized the development of modern infrastructure and transportation,
+                    which
+                    has improved both domestic and international tourism access​ Notably, Cebu's airports and ports have
+                    been upgraded, facilitating easier travel for tourists.
+                    Furthermore, the city's vibrant festivals, such as Sinulog, continue to attract thousands annually,
+                    celebrating Cebu's rich cultural heritage​ Vice Mayor Garcia has been instrumental in maintaining
+                    environmental sustainability while
+                    encouragingtourism growth.
+                    <br><br>
+                    This includes supporting eco-friendly projects and preserving Cebu’s historical landmarks​
+                    Additionally, tourism projects like the regular flights to Bantayan Island and the promotion of the
+                    province’s hidden gems have further boosted the influx of visitors​ Together, their collective
+                    efforts, focusing on infrastructure, cultural preservation, and
+                    accessibility, have made Cebu one of the most visited destinations in the Philippines.
+                </p>
+
+            </div>
+            <!--/.aboutus-img-->
+            <div class="aboutus-img2">
+                <img src="official.png" alt="">
+            </div>
+
+
+
+
+            <!--/.aboutus-content-->
+        </div>
+        <!--/.wrapper-aboutus-->
+        <br><br><br>
+        <div class="map-section">
+            <h1>Cebu City Map</h1>
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d125585.22068163031!2d123.84629469999999!3d10.37876445!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33a999258dcd2dfd%3A0x4c34030cdbd33507!2sCebu%20City%2C%206000%20Cebu!5e0!3m2!1sen!2sph!4v1733823931172!5m2!1sen!2sph"
+                width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </iframe>
+        </div>
+
+
+    </section>
+    <!-- ====== End About Us ====== -->
+
+
+    <footer>
+        <div class="Foot">
+            <p>
+                &copy; Cebu City. All Rights Reserved. Privacy Policy | Terms of Service
+            </p>
+        </div>
+    </footer>
+
+</body>
+
+</html>
