@@ -432,7 +432,7 @@ body.sidebar-active {
 
 .place-card {
     border-radius: 10px;
-    height: 300px;
+    height: 315px;
     width: 250px;
     box-shadow: 2px 5px 5px 2px rgba(0, 0, 0, 0.3);
     background-color: white;
@@ -558,7 +558,7 @@ a {
         justify-content: start;
     }
     .slideshow-container {
-        height: 450px;
+        height: 500px;
     }
     .food-description img {
         margin-right: 50px;
@@ -566,11 +566,11 @@ a {
         flex-direction: column;
     }
     .slide-indicators {
-        top: 46%;
+        top: 49%;
         left: 10%;
     }
     .button-container {
-        top: 44%;
+        top: 47%;
         right: 9%;
     }
     .header-title {
