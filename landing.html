@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/645a3a0762.js" crossorigin="anonymous"></script>
+    <link rel="icon" href="favicon2.png" type="image/x-icon">
+    <title>Hello, Cebu!</title>
+</head>
+<body>
+    <nav class="nav-panel">
+        <img src="logo.png">
+        <ul class="sidebar">
+            <li onclick=hideSidebar()><a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#5f6368"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg></a></li>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Cuisine</a></li>
+            <li><a href="#">Attractions</a></li>
+            <li><a href="#">Events</a></li>
+        </ul>
+
+        <ul>
+            <li><a class="hideOnMobile" href="#">Home</a></li>
+            <li><a class="hideOnMobile" href="#">Cuisine</a></li>
+            <li><a class="hideOnMobile" href="#">Attractions</a></li>
+            <li><a class="hideOnMobile" href="#">Events</a></li>
+            <li class="menu-button" onclick=showSidebar()><a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#5f6368"><path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/></svg></a></li>
+        </ul>
+    </nav>
+
+    <section class="teaser-slides">    
+        
+        <div class="carousel-container">
+            <div class="carousel">
+
+                <div class="carousel-slide">
+                    <img src="/pics/Cebu-City-aerial-view.jpg" alt="chicharon">
+                    <div class="slide-info">
+                        <h1>DEVOTION</h1>
+                        <p>The pride of Tisa! These steamed pork dumplings are a mouthwatering specialty of the district.</p>
+                    </div>
+                </div>
+                <div class="carousel-slide">
+                    <img src="/pics/magellan-cross.jpg" alt="chicharon">
+                    <div class="slide-info">
+                        <h1>SINULOG</h1>
+                        <p>The pride of Tisa! These steamed pork dumplings are a mouthwatering specialty of the district.</p>
+                    </div>
+                </div>
+                <div class="carousel-slide">
+                    <img src="/pics/carcar-chicharon.jpg" alt="chicharon">
+                    <div class="slide-info">
+                        <h1>CHICHARON</h1>
+                        <p>The pride of Tisa! These steamed pork dumplings are a mouthwatering specialty of the district.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="slide-indicators">
+                <div class="indicator active"></div>
+                <div class="indicator"></div>
+                <div class="indicator"></div>
+            </div>
+        </div>
+
+        <div class="cebu-background">
+            <img src="/pics/Cebu_City_Hall_(Plaza_Sugbu,_Cebu_City;_01-21-2023).jpg" alt="">
+            <div class="background-description">
+                <h1>Cebu City</h1>
+                <p>Cebu City, the "Queen City of the South," is the oldest city in the Philippines and a vibrant hub for trade, tourism, and culture. Known for landmarks like Magellan’s Cross and the Basilica Minore del Santo Niño, it blends rich history with modern urban life. Highlighted by the grand Sinulog Festival and famous for its delicious lechon, Cebu City is a top destination and a dynamic center of growth.</p>
+            </div>    
+        </div>
+
+        <div class="demographic">
+            <div class="demographic-item">
+                <h1>315</h1>
+                <h4>Kilometers<sup>2</sup></h4>
+                <p><i>Area</i></p>
+            </div>
+            <div class="demographic-item">
+                <h1>1,042,610</h1>
+                <h4 style="margin-top: -9px;">Residences</h4>
+                <p><i>Population</i></p>
+            </div>
+            <div class="demographic-item">
+                <h1>3,061</h1>
+                <h4>Population per kilometer<sup>2</sup></h4>
+                <p><i>Population Density</i></p>
+            </div>
+        </div>
+
+        <div class="explore-cebu">
+            <h1>Explore Cebu</h1>
+            <div class="feature-container">
+
+                <div class="feature">
+                    <img src="/pics/attractions.jpg" alt="">
+                    <h1>Attractions</h1>
+                </div>
+                <div class="feature">
+                    <img src="/pics/background.jpg" alt="">
+                    <h1>Background</h1>
+                </div>
+                <div class="feature">
+                    <img src="/pics/events.jpg" alt="">
+                    <h1>Events</h1>
+                </div>
+                <div class="feature">
+                    <img src="/pics/lechon-2.png" alt="">
+                    <h1>Cuisine</h1>
+                </div>
+            </div>
+        </div>
+
+        <div class="call-for-action">
+            <h4>Discover the Heart of Cebu City<br>Dive into its</h4> 
+            <img src="call-for-action.png">
+            <h4>Start Your Journey with Us Today!</h4>
+        </div>
+
+        <footer>
+            <div class="footer">
+                <p>
+                    &copy; Cebu City. All Rights Reserved. Privacy Policy | Terms of Service
+                </p>
+            </div>
+        </footer>
+
+        <script src="script.js"></script>
+        
+    </section>
+</body>
+</html>

@@ -1,0 +1,453 @@
+body {
+    font-family: 'Poppins', Arial, Helvetica, sans-serif;
+    margin: 0;
+    width: 100%;
+    height: 100vh;
+}
+body::-webkit-scrollbar {
+    display: none; /* Webkit browsers like Chrome and Safari */
+}
+
+/*
+.nav-panel {
+    z-index: 1000;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 10px;
+    display: grid;
+    grid-template-columns: 2fr 4fr;
+    align-content: center;
+    padding: 15px 5px;
+    background-color: rgba(000, 000, 000, 0.20);
+    background: linear-gradient(to bottom, rgba(000, 000, 000, 0.50), rgba(000, 000, 000, 0.30), rgba(000, 000, 000, 0.00));
+}
+
+.nav-buttons {
+    display: grid;
+    grid-template-columns: 1fr 1.3fr 1fr 1fr;
+    max-width: 500px;
+    justify-self: self-end;
+    align-content: center;
+    font-size: 20px;
+}
+
+.nav-buttons a {
+    text-align: center;
+}
+*/
+.nav-panel {
+    z-index: 9999;
+    position: fixed;
+    top: 0; 
+    width: 100%; 
+    display: flex; 
+}
+
+.nav-panel {
+    z-index: 999;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    display: flex;
+    transition: background-color 0.3s ease, color 0.3s ease; 
+}
+.nav-panel img{
+    height: 60px;
+    width: auto;
+    position: absolute;
+    left: 2%;
+    top: -5px;
+}
+nav {
+    background-color: rgba(0, 0, 0, 0.20);
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.40), rgba(0, 0, 0, 0.20), rgba(0, 0, 0, 0.00));
+    color: white; 
+}
+
+.nav-panel.scrolled {
+    background-color: white; 
+    background: white; 
+    color: black; 
+
+}
+
+nav ul {
+    width: 100%;
+    list-style: none;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+nav li {
+    height: 50px;
+}
+
+nav a {
+    height: 100%;
+    padding: 0 30px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    color: inherit; 
+}
+
+nav a:hover {
+    color: #f1f1f1; 
+}
+
+.menu-button {
+    display: none;
+}
+.sidebar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 250px;
+    z-index: 999;
+    background-color: rgba(255, 255, 255, 0.307);
+    backdrop-filter: blur(5px);
+    box-shadow: -10px 0 -10px rgba(0, 0, 0, 0.1);
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+.sidebar li {
+    width: 100%;
+}
+
+.sidebar a {
+    width: 100%;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+@media(max-width: 800px) {
+    .hideOnMobile {
+        display: none;
+    }
+    .menu-button {
+        display: block;
+    }
+}
+
+@media(max-width: 400px) {
+    .sidebar {
+        width: 100%;
+    }
+}
+
+
+.carousel-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.carousel {
+    display: flex;
+    transition: transform 0.2s ease-in-out;
+}
+
+.carousel-slide {
+    overflow: hidden;
+    position: relative;
+    min-width: 100%;
+    height: 100vh;
+}
+
+.carousel-slide img {
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+    object-position: top;
+}
+
+.slide-info {
+    justify-items: end;
+    min-width: 400px;
+    max-width: 100vh;
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    color: white;
+    margin: 0;
+    text-align: right;
+    border-radius: 5px;
+    text-shadow: 2px 3px 10px rgba(000, 000, 000, 0.80);
+    z-index: 99;
+}
+
+.slide-info h1 {
+    font-size: 70px;
+    padding: 0;
+    margin: 0;
+}
+
+.slide-info p {
+    max-width: 400px;
+    font-size: 15px;
+    color: white;
+    padding: 0;
+    margin: 0;
+}
+
+button {
+    position: absolute;
+    top: 90%;
+    background: none;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 1;
+}
+.prev {
+    opacity: 50%;
+    left: 10px;
+}
+.next {
+    opacity: 50%;
+    right: 10px;
+}
+
+.slide-indicators {
+    position: absolute;
+    bottom: 22px;
+    left: 90px;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 8px;
+}
+.indicator{
+    width: 35px;
+    height: 3px;
+    background: white;
+    border-radius: 2px;
+    cursor: pointer;
+    opacity: 0.4;
+    transition: opacity 0.3s;
+}
+.indicator.active {
+    opacity: 1;
+}
+
+
+/* Demographic*/
+.demographic {
+    display: flex;
+    min-height: 200px;
+    padding: 20px 20px;
+    justify-content: space-evenly;
+    background-image: linear-gradient(to bottom, rgba(8, 82, 48, 0.5) , rgba(8, 82, 48, 0.9) ), url('/pics/Cebu-City-aerial-view.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    justify-items: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.demographic-item{
+    text-align: center;
+    color: white;
+    height: 120px;
+    min-width: 220px;
+    max-width: 300px;
+    display: flex;
+    flex-direction: column;
+    margin: 20px 20px;
+    text-decoration: none;
+    justify-items: center;
+}
+.demographic-item p, h1, h4{
+    margin: 0;
+    padding: 0;
+}
+.demographic-item p{
+    margin-top: -5px;
+    font-size: 15px;
+    opacity: 70%;
+    width: 100%;
+}
+.demographic-item h1{
+    width: 100%;
+    font-size: 40px;
+}
+.demographic-item h4{
+    width: 100%;
+    margin-top: -12px;
+    font-size: 20px;
+}
+
+
+/* Background */
+.explore-cebu {
+    width: 100%;
+    display: flex;
+    color: black;
+    flex-wrap: wrap;
+    text-align: center;
+    padding: 20px 0px;
+    height: 450px;
+}
+.explore-cebu h1{
+    width: 100%;
+}
+.feature-container {
+    display: flex;
+    gap: 10px;
+}
+.feature {
+    height: 300px;
+}
+.feature img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.cebu-background {
+    width: 100%;
+    height: auto;
+    text-align: center;
+    justify-content: center;
+    justify-items: center;
+    padding: 30px 0px;
+    display: flex;
+    flex-wrap: wrap;
+}
+.cebu-background img{
+    height: 300px;
+    width: 500px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+.cebu-background h1, p{
+    width: 80%;
+    padding: 5px;
+}
+.cebu-background h1{
+    padding-top: 20px;
+}
+.background-description {
+    display: block;
+    width: 100%;
+    justify-content: center;
+    justify-items: center;
+}
+
+
+
+/* Call for Action*/
+.call-for-action {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    background-image: url('/pics/Cebu-City-aerial-view.jpg');
+    background-attachment: fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+    color: white;
+    text-shadow: 2px 5px 5px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    padding: 25px 0px;
+}
+
+.call-for-action h4{
+    font-size: 25px;
+}
+.call-for-action img{
+    aspect-ratio: inherit;
+    height: 400px;
+    width: auto;
+}
+
+/*Cuisine Section*/
+.cuisine-section {
+    height: 360px;
+    width: 100%;
+    display: block;
+}
+
+.scrolling-food{
+    z-index: -1; /* Below the scrollable-container */
+    width: 100%;
+    height: 344px;
+    overflow: hidden;
+    position: relative;
+    opacity: 65%;
+}
+.scrolling-list{
+    display: flex;
+    width: 100%;
+    min-width: calc(var(--width) * var(--quantity));
+    justify-content: center;
+    position: relative;
+}
+
+.scrolling-item {
+    z-index: 0;
+    width: var(--width);
+    height: var(--height);
+    position: absolute;
+    left: 100%;
+    animation: autoRun 25s linear infinite;
+    animation-delay: calc((25s / (var(--quantity) - 11)) * (var(--position) - 1));
+}
+.scrolling-food .scrolling-list img{
+    width: var(--width);
+}
+
+@keyframes autoRun {
+    from {
+        left: 100%;
+    }
+    to {
+        left: calc(var(--width) * -1);
+    }
+}
+
+
+
+@media (max-width: 1024px) {
+    .book-overview {
+        width: 100%;
+        margin-right: 0px;
+    }
+    .mini-container {
+        width: 100%;
+        margin-right: 0px;
+        gap: 0;
+    }
+    .user-count {
+        margin-top: 10px;
+        margin-bottom: 0px;
+    }
+}
+
+/*About Us*/
+.footer {
+    color: #ffffff;
+    text-align: center;
+    background-color: #073B4C;
+    padding: 10px 0px;
+    width: 100%;
+    margin: 0px auto;
+}
+.footer p{
+    width: 100%;
+    padding: 0px 0px;
+    margin: 0px;
+}
