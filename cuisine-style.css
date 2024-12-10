@@ -225,7 +225,7 @@ body.sidebar-active {
     width: 100%;
     min-height: 250px;
     padding: 20px 0px;
-    background-image: linear-gradient(to bottom, rgba(7, 59, 76, 0.5) , rgba(7, 59, 76, 0.9) ), url('/cuisine-pics/cuisine-background.jpg');
+    background-image: linear-gradient(to bottom, rgba(7, 59, 76, 0.5) , rgba(7, 59, 76, 0.9) ), url('cuisine-pics/cuisine-background.jpg');
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
