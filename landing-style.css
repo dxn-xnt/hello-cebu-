@@ -542,10 +542,10 @@ body.sidebar-active {
 }
 .call-for-action img{
     aspect-ratio: inherit;
-    max-height: 400px;
-    min-height: 300px;
+    max-height: 350px;
     width: auto;
 }
+
 
 /*Cuisine Section*/
 .cuisine-section {
