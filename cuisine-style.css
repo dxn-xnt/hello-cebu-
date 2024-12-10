@@ -1,0 +1,594 @@
+body {
+    font-family: 'Poppins', Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100vh;
+}
+body::-webkit-scrollbar {
+    display: none; /* Webkit browsers like Chrome and Safari */
+}
+
+
+.nav-panel {
+    z-index: 9999;
+    position: fixed;
+    top: 0; 
+    width: 100%; 
+    display: flex; 
+}
+
+.nav-panel {
+    z-index: 999;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    display: flex;
+    transition: background-color 0.3s ease, color 0.3s ease; 
+}
+.nav-panel img{
+    height: 60px;
+    width: auto;
+    position: absolute;
+    left: 2%;
+    top: -5px;
+}
+nav {
+    background-color: rgba(0, 0, 0, 0.20);
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.40), rgba(0, 0, 0, 0.20), rgba(0, 0, 0, 0.00));
+    color: white; 
+}
+
+.nav-panel.scrolled {
+    background-color: white; 
+    background: white; 
+    color: black; 
+
+}
+
+nav ul {
+    width: 100%;
+    list-style: none;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+nav li {
+    height: 50px;
+}
+
+nav a {
+    height: 100%;
+    padding: 0 20px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    color: inherit; 
+    position: relative; /* Allow the pseudo-element to be positioned */
+    transition: transform 0.3s ease; /* Smooth transition for moving text */
+}
+
+/* Underline effect before scroll */
+nav a::after {
+    content: ''; 
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 1px; /* Underline height */
+    background-color: #f1f1f1;
+    transition: width 0.3s ease; /* Smooth transition for underline */
+}
+/* On hover before scroll, the underline appears */
+nav a:hover::after {
+    width: 100%; /* Full width of the underline */
+}
+
+/* No underline after scroll, but text moves slightly up */
+nav a.scrolled-hover:hover {
+    transform: translateY(-5px); /* Move text slightly up */
+}
+
+/* No color change on hover */
+nav a:hover {
+    color: inherit; /* Keep the text color the same */
+}
+
+/* Remove underline after scroll */
+nav a.scrolled-hover::after {
+    content: none; /* Remove the underline */
+}
+
+.menu-icon {
+    transition: fill 0.3s ease;
+    fill: #ffffff; 
+}
+
+.nav-panel.scrolled .menu-icon {
+    fill: black;  
+}
+
+/* Sidebar initial style */
+.sidebar {
+    position: fixed;
+    top: 0;
+    right: -250px; /* Start off-screen */
+    height: 100vh;
+    width: 250px;
+    z-index: 999;
+    background-color: rgba(255, 255, 255, 0.307);
+    backdrop-filter: blur(5px);
+    box-shadow: -10px 0 -10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    transition: transform 0.5s ease-in-out; /* Smooth transition */
+    color: black; /* Set text color to black */
+}
+.sidebar li {
+    width: 100%;
+}
+
+.sidebar a {
+    width: 100%;
+    color: black; /* Set text color to black */
+    font-size: 18px;
+    opacity: 100%;
+}
+/* When the sidebar is active (shown), slide it in */
+.sidebar.active {
+    transform: translateX(-250px); /* Move the sidebar into view */
+}
+
+/* Prevent scrolling when sidebar is open */
+body.sidebar-active {
+    overflow: hidden;
+}
+
+.menu-button {
+    display: none;
+    color: white;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+
+@media(max-width: 400px) {
+    .sidebar {
+        width: 100%;
+    }
+}
+
+
+@media(max-width: 800px) {
+    .hideOnMobile {
+        display: none;
+    }
+    .menu-button {
+        display: block;
+    }
+    .image-container {
+        text-align: center;
+    }
+    .image-wrapper {
+        width: 100%;
+        padding: 0px 5%;
+        padding-bottom: 20px;
+    }
+    .image-text {
+        width: 80%;
+        padding: 0px 10%;
+        padding-bottom: 20px;
+    }
+}
+
+
+
+
+.slide-indicators {
+    position: absolute;
+    top: 40%;
+    left: 7%;
+    display: flex;
+    gap: 5px;
+    z-index: 10;
+}
+.indicator{
+    width: 10px;
+    height: 3px;
+    background: white;
+    border-radius: 2px;
+    cursor: pointer;
+    opacity: 0.4;
+    transition: opacity 0.3s;
+}
+.indicator.active {
+    opacity: 1;
+}
+.button-container{
+    display: flex;
+    position: absolute;
+    top: 37%;
+    right: 7%;
+    gap: 5px;
+    z-index: 10;
+    color: white;
+}
+
+.header-title {
+    display: flex;
+    width: 100%;
+    min-height: 250px;
+    padding: 20px 0px;
+    background-image: linear-gradient(to bottom, rgba(7, 59, 76, 0.5) , rgba(7, 59, 76, 0.9) ), url('/cuisine-pics/cuisine-background.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: #ffffff;
+}
+
+.title {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    color: white;
+}
+.title h1{
+    width: 100%;
+}
+.title p{
+    display: block;
+    justify-self: center;
+    width: 100%;
+    max-width: 80%;
+    margin-right: auto;
+    margin-left: auto;
+    color: white;
+}
+
+.section-header {
+    padding: 30px 0px;
+    width: 100%;
+    text-align: left;
+    padding-bottom: 10px;
+}
+
+.section-header h1{
+    padding-left: 6%;
+}
+
+.food-section {
+    position: relative;
+    overflow: hidden;
+    margin: 0;
+}
+
+.featured-slideshow{
+    display: flex; /* Arrange slides in a row for horizontal sliding */
+    transition: transform 0.5s ease-in-out;
+}
+
+.feature-cuisine {
+    flex: 0 0 100%;
+    position: relative;
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    padding: 0;
+}
+
+.slideshow-container {
+    position: relative;
+    width: 90%;
+    height: 350px;
+    overflow: hidden;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 10px;
+}
+
+.food-slideshow {
+    display: flex;
+    transition: transform 0.2s ease-in-out;
+    height: 100%;
+    width: 100%;
+}
+
+.food-slide {
+    flex: 0 0 100%;
+    height: 100%;
+    width: 100%;
+    position: relative;
+}
+
+.food-slide img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    filter: blur(2px);
+}
+
+.slideshow-container .overlay{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Replace with your desired color and opacity */
+    pointer-events: none; 
+}
+
+.food-description {
+    display: flex;
+    width: 100%;
+    height: 350px;
+    position: absolute;
+    color: white;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 10px 10px;
+}
+
+.food-description img{
+    height: 300px;
+    width: auto;
+    display: block;
+    padding-top: 10px;
+    margin-right: 50px;
+}
+#balbacua{
+    height: 280px;
+    width: auto;
+}
+#tuslob-buwa {
+    height: 260px;
+    width: auto;
+}
+#ngohiong{
+    height: 260px;
+    width: auto;
+    margin-top: -10px;
+}
+
+
+.text-description {
+    text-align: left;
+    max-width: 450px;
+    color: white;
+}
+.text-description p{
+    margin: 0px;
+    padding: 0px 10px;
+    color: #ffffff;
+}
+.text-description h1{
+    padding: 5px 10px;
+}
+
+/* Featured Spots*/
+.feature-spots{
+    flex: 1;
+    height: 100%;
+    width: 200px;
+    padding: 20px;
+    position: relative;
+    margin: 0;
+    text-align: center;
+}
+
+.feature-spots h1{
+    padding: 10px 0px;
+}
+
+.scroll-container {
+    width: 100%;
+    display: flex;
+    gap: 20px;
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+    box-sizing: border-box;
+    scroll-snap-type: none;
+    position: relative;
+    scroll-behavior: smooth;
+    transition-delay: 2s !important;
+    margin: 0;
+    margin-bottom: 50px;
+    padding: 10px 10px;
+    justify-content: center;
+}
+
+.scroll-item {
+    flex: 0 0 auto;
+    width: 250px;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;    
+    position: relative;
+}
+
+
+.scroll-container::-webkit-scrollbar {
+    height: 0px;
+    width: 0px;
+}
+
+.scroll-container::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 4px;
+}
+
+.place-card {
+    border-radius: 10px;
+    height: 300px;
+    width: 250px;
+    box-shadow: 2px 5px 5px 2px rgba(0, 0, 0, 0.3);
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.place-card img {
+    height: 180px;
+    width: 250px;
+    object-fit: cover;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    margin-bottom: 8px;
+}
+
+.place-card h4,
+p,
+a {
+    margin: 0;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 2px;
+}
+
+.place-card p,
+a {
+    font-size: 14px;
+    opacity: 70%;
+}
+
+.place-card a {
+    color: #000000;
+    opacity: 90%;
+    margin-top: auto;
+    padding-bottom: 10px;
+}
+
+
+/*Recommended Restaurants*/
+.recommended-restaurants {
+    padding: 40px 0px;
+    padding-top: 0px;
+}
+.recommended-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3%;
+    justify-content: center;
+}
+.restaurant {
+    position: relative;
+    height: 260px;
+    width: 250px;
+    padding: 10px 0px;
+    overflow: hidden; 
+    cursor: pointer;
+} 
+.restaurant img{
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+    transition: transform 0.3s ease;
+}
+.restaurant:hover img {
+    transform: scale(1.1); /* Slightly zooms the image on hover */
+}
+
+.restaurant-description {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(255, 255, 255, 0.7); /* Dark background with transparency */
+    color: black;
+    padding: 20px;
+    transform: translateY(100%); /* Initially hidden below the container */
+    transition: transform 0.3s ease; /* Smooth slide-in effect */
+}
+
+.restaurant:hover .restaurant-description {
+    transform: translateY(0); /* Slide up the description on hover */
+}
+.restaurant-description a, p, h3{
+    text-decoration: none;
+    padding: 0px 0px;
+    color: #000000;
+}
+.restaurant-description p{
+    font-size: 15px;
+    opacity:80%;
+}
+.restaurant-description h3 {
+    margin-left: 8px;
+}
+.restaurant-description a{
+    margin-top: auto;
+    padding-bottom: 10px;
+    text-decoration: underline;
+}
+/*About Us*/
+.footer {
+    color: #ffffff;
+    text-align: center;
+    background-color: #073B4C;
+    padding: 10px 0px;
+    width: 100%;
+    margin: 0px auto;
+}
+.footer p{
+    width: 100%;
+    padding: 0px 0px;
+    margin: 0px;
+    color: #ffffff;
+}
+
+@media (max-width: 900px) {
+    .text-description {
+        text-align: center;
+    }
+    .scroll-container {
+        justify-content: start;
+    }
+    .slideshow-container {
+        height: 450px;
+    }
+    .food-description img {
+        margin-right: 50px;
+        height: 230px;
+        flex-direction: column;
+    }
+    .slide-indicators {
+        top: 46%;
+        left: 10%;
+    }
+    .button-container {
+        top: 44%;
+        right: 9%;
+    }
+    .header-title {
+        padding: 50px 0px;
+    }
+    #balbacua{
+        height: 230px;
+        width: auto;
+    }
+    #tuslob-buwa {
+        height: 230px;
+        width: auto;
+    }
+    #ngohiong{
+        height: 230px;
+        width: auto;
+        margin-top: -10px;
+    }
+}
+
+

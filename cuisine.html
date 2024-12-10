@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="cuisine-style.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <script src="https://kit.fontawesome.com/645a3a0762.js" crossorigin="anonymous"></script>
+    <link rel="icon" href="/general-pics/favicon2.png" type="image/x-icon">
+    <title>Hello, Cebu!</title>
+</head>
+
+<body>
+    <nav class="nav-panel">
+        <img src="general-pics/logo.png">
+        <ul class="sidebar">
+            <li onclick=hideSidebar()><a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#5f6368"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg></a></li>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="cuisine.html">Cuisine</a></li>
+            <li><a href="attractions.html">Attractions</a></li>
+            <li><a href="events-festival.html">Events</a></li>
+            <li><a href="about-us.html">About Us</a></li>
+            <li><a href="team.html">Team</a></li>
+        </ul>
+
+        <ul>
+            <li><a class="hideOnMobile" href="index.html">Home</a></li>
+            <li><a class="hideOnMobile" href="cuisine.html">Cuisine</a></li>
+            <li><a class="hideOnMobile" href="attractions.html">Attractions</a></li>
+            <li><a class="hideOnMobile" href="events-festival.html">Events</a></li>
+            <li><a class="hideOnMobile" href="about-us.html">About Us</a></li>
+            <li><a class="hideOnMobile" href="team.html">Team</a></li>
+            <li class="menu-button" onclick=showSidebar()><a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#5f6368"><path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/></svg></a></li>
+        </ul>
+    </nav>
+
+    <div class="header-title">
+        <div class="title">
+            <h1>Featured Eats: Cebu City's Pride on a Plate</h1>
+            <p>Dive into Cebu City’s rich culinary heritage with a curated selection of its most iconic dishes. From the
+                world-famous lechon to hidden treasures like puso (hanging rice) and seafood delights, these featured
+                eats capture the heart and flavor of Cebuano cuisine. Savor every bite and discover why Cebu is a true
+                foodie paradise!</p>
+        </div>
+    </div>
+
+
+    <div class="section-header">
+        <h1>Cebu Favorites</h1>
+    </div>
+    <div class="food-section">
+        <div class="featured-slideshow">
+            <div class="feature-cuisine">
+
+                <div class="slideshow-container">
+                    <div class="food-slideshow">
+                        <div class="food-slide">
+                            <img src="cuisine-pics/soimai.png" alt="">
+                        </div>
+                    </div>
+                    <div class="overlay"></div>
+                </div>
+
+
+                <div class="food-description">
+                    <img src="cuisine-pics/soimai_sa_tisa.png">
+                    <div class="text-description">
+                        <h1>Siomai sa Tisa</h1>
+                        <p>The pride of Tisa! These steamed pork dumplings are a mouthwatering specialty of the
+                            district, best enjoyed with a zesty mix of calamansi (limonsito), vinegar, soy sauce, and
+                            chile-garlic oil. </p>
+                    </div>
+                </div>
+
+                <div class="feature-spots">
+                    <h1>Signature Spots</h1>
+                    <div class="scroll-container" id="scrollContainer">
+                        <div class="scroll-item">
+                            <div class="place-card">
+                                <img src="cuisine-pics/Kuya-Jeffs.jpg" alt="Kuya Jeff's Siomayan">
+                                <h4>Kuya Jeff's Siomayan</h4>
+                                <p>152-146 Francisco Llamas St, Cebu City</p>
+                                <a href="https://g.co/kgs/uggiUoC" target="_blank">Visit Place</a>
+                            </div>
+                        </div>
+
+                        <div class="scroll-item">
+                            <div class="place-card">
+                                <img src="cuisine-pics/Siomayan-sa-Rama.jpg" alt="Siomayan sa Rama Compound">
+                                <h4>Siomai sa Rama Compound</h4>
+                                <p>Rama Compound Basak San Nicolas, Cebu City</p>
+                                <a href="https://g.co/kgs/YhUWFsP" target="_blank">Visit Place</a>
+                            </div>
+                        </div>
+
+                        <div class="scroll-item">
+                            <div class="place-card">
+                                <img src="cuisine-pics/Siomayan-sa-Tisa.jpeg" alt="Siomayan in Barangay Tisa">
+                                <h4>Siomayan in Barangay Tisa</h4>
+                                <p>816 Katipunan St, Cebu City</p>
+                                <a href="https://g.co/kgs/y94nkN8" target="_blank">Visit Place</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Lechon de Cebu -->
+            <div class="feature-cuisine">
+                <div class="slideshow-container">
+                    <div class="food-slideshow">
+                        <div class="food-slide">
+                            <img src="cuisine-pics/lechon.png" alt="">
+                        </div>
+                    </div>
+                    <div class="overlay"></div>
+                </div>
+
+                <div class="food-description">
+                    <img style="margin-right: 60px;" src="cuisine-pics/lechon_de_cebu.png">
+                    <div class="text-description">
+                        <h1>Lechon de Cebu</h1>
+                        <p>Renowned as the crown jewel of roasted pigs in the Philippines, Cebu lechon boasts
+                            irresistibly crispy skin, rich, flavorful meat, and perfection so complete it needs no sauce
+                            to steal the show! </p>
+                    </div>
+                </div>
+
+                <div class="feature-spots">
+                    <h1>Signature Spots</h1>
+                    <div class="scroll-container" id="scrollContainer">
+                        <div class="scroll-item">
+                            <div class="place-card">
+                                <img src="cuisine-pics/rico's-lechon.jpg" alt="Kuya Jeff's Siomayan">
+                                <h4>Rico's Lechon</h4>
+                                <p>N Escario St, Cebu City, 6000 Cebu</p>
+                                <a href="https://g.co/kgs/GFGFZ4B" target="_blank">Visit Place</a>
+                            </div>
+                        </div>
+
+                        <div class="scroll-item">
+                            <div class="place-card">
+                                <img src="cuisine-pics/zubuchon.jpg" alt="Siomayan sa Rama Compound">
+                                <h4>Zubuchon</h4>
+                                <p>7VJJ+8PJ, Cebu South Coastal Rd, Cebu City, 6000 Cebu</p>
+                                <a href="https://g.co/kgs/78vCHjm" target="_blank">Visit Place</a>
+                            </div>
+                        </div>
+
+                        <div class="scroll-item">
+                            <div class="place-card">
+                                <img src="cuisine-pics/02-10+HOUSE+OF+LECHON+P3.png" alt="Siomayan in Barangay Tisa">
+                                <h4>House of Lechon</h4>
+                                <p>Acacia St, Cebu City, 6000 Cebu</p>
+                                <a href="https://g.co/kgs/DScJqbf" target="_blank">Visit Place</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Balbacua -->
+            <div class="feature-cuisine">
+                <div class="slideshow-container">
+                    <div class="food-slideshow">
+                        <div class="food-slide">
+                            <img src="cuisine-pics/balbacua-2.jpg" alt="">
+                        </div>
+                    </div>
+                    <div class="overlay"></div>
+                </div>
+
+                <div class="food-description">
+                    <img id="balbacua" style="margin-right: 60px;" src="cuisine-pics/balbacua-.png">
+                    <div class="text-description">
+                        <h1>Balbacua</h1>
+                        <p>A hearty stew of tender beef and gelatinous cuts slow-cooked to silky perfection in a rich,
+                            peanut-infused broth. One bite of Balbacua isn’t just a meal—it’s a delicious dive into the
+                            vibrant flavors of Cebu’s culinary heritage!</p>
+                    </div>
+                </div>
+
+                <div class="feature-spots">
+                    <h1>Signature Spots</h1>
+                    <div class="scroll-container" id="scrollContainer">
+                        <div class="scroll-item">
+                            <div class="place-card">
+                                <img src="cuisine-pics/matiasbbq.png" alt="Kuya Jeff's Siomayan">
+                                <h4>Matias BBQ</h4>
+                                <p>F. Sotto Banilad, Cebu City</p>
+                                <a href="https://g.co/kgs/j8ZUM6q" target="_blank">Visit Place</a>
+                            </div>
+                        </div>
+
+                        <div class="scroll-item">
+                            <div class="place-card">
+                                <img src="cuisine-pics/yancy.jpg" alt="Siomayan sa Rama Compound">
+                                <h4>Yancy's Balbacuahan (Mabolo Branch)</h4>
+                                <p>Cebu City, 6000 Cebu</p>
+                                <a href="https://g.co/kgs/mUUCtVD" target="_blank">Visit Place</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tuslob Buwa -->
+            <div class="feature-cuisine">
+                <div class="slideshow-container">
+                    <div class="food-slideshow">
+                        <div class="food-slide">
+                            <img src="cuisine-pics/tuslob-buwa.jpg" alt="">
+                        </div>
+                    </div>
+                    <div class="overlay"></div>
+                </div>
+
+                <div class="food-description">
+                    <img id="tuslob-buwa" style="margin-right: 70px;" src="cuisine-pics/tuslob-buwa--.png">
+                    <div class="text-description">
+                        <h1>Tuslob Buwa</h1>
+                        <p>Cebu's street food gem, is a rich, savory mix of pork liver and brain, sautéed with garlic,
+                            onions, shrimp paste, and chili. Simmered in a thick, bubbly stew, it’s perfect for dipping
+                            puso (hanging rice) and savoring every flavorful bite!</p>
+                    </div>
+                </div>
+
+                <div class="feature-spots">
+                    <h1>Signature Spots</h1>
+                    <div class="scroll-container" id="scrollContainer">
+                        <div class="scroll-item">
+                            <div class="place-card">
+                                <img src="cuisine-pics/carbon-market.jpg" alt="Kuya Jeff's Siomayan">
+                                <h4>Cebu Carbon Night Market</h4>
+                                <p>7VRX+FQ8, Cebu City, 6000 Cebu</p>
+                                <a href="https://g.co/kgs/kjDH4oU" target="_blank">Visit Place</a>
+                            </div>
+                        </div>
+
+                        <div class="scroll-item">
+                            <div class="place-card">
+                                <img src="cuisine-pics/tuslob-buwa-sa-pasil-cebu.jpg" alt="Siomayan sa Rama Compound">
+                                <h4>Tuslob Buwa sa Pasil</h4>
+                                <p>F. Vestil Street Mambaling, Cebu City</p>
+                                <a href="https://g.co/kgs/78vCHjm" target="_blank">Visit Place</a>
+                            </div>
+                        </div>
+
+                        <div class="scroll-item">
+                            <div class="place-card">
+                                <img src="cuisine-pics/azul-tuslob-buwa.jpg" alt="Siomayan in Barangay Tisa">
+                                <h4>Azul Tuslob Buwa</h4>
+                                <p>Taft Business Center, Gorordo Ave, Cebu City</p>
+                                <a href="https://g.co/kgs/zzS1JAf" target="_blank">Visit Place</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ginabot -->
+            <div class="feature-cuisine">
+                <div class="slideshow-container">
+                    <div class="food-slideshow">
+                        <div class="food-slide">
+                            <img src="cuisine-pics/ginabot.jpg" alt="">
+                        </div>
+                    </div>
+                    <div class="overlay"></div>
+                </div>
+
+                <div class="food-description">
+                    <img id="ginabot" style="margin-right: 60px;" src="cuisine-pics/ginabot.--jpg.png">
+                    <div class="text-description">
+                        <h1>Ginabot</h1>
+                        <p>Golden-battered and deep-fried to crispy perfection, pork intestines are perfectly paired
+                            with puso or savored as pulutan. Dip it in tangy vinegar, and you’ve got a flavor-packed
+                            Cebuano classic!</p>
+                    </div>
+                </div>
+
+                <div class="feature-spots">
+                    <h1>Signature Spots</h1>
+                    <div class="scroll-container" id="scrollContainer">
+                        <div class="scroll-item">
+                            <div class="place-card">
+                                <img src="cuisine-pics/ginabot-sa-pardo.png" alt="Kuya Jeff's Siomayan">
+                                <h4>Ginabot Stall in Pardo</h4>
+                                <p>Ginabot sa Pardo, 7VH4+QCP, cor. Dacalos and, J Tabura St, Cebu City</p>
+                                <a href="https://g.co/kgs/6Yyu19m" target="_blank">Visit Place</a>
+                            </div>
+                        </div>
+
+                        <div class="scroll-item">
+                            <div class="place-card">
+                                <img src="cuisine-pics/pungko2.jpg" alt="Siomayan sa Rama Compound">
+                                <h4>Pungko-pungko sa Fuente</h4>
+                                <p>Pungko-pungko sa Fuente, 52-A J. Llorente St, Cebu City</p>
+                                <a href="https://g.co/kgs/DERf15C" target="_blank">Visit Place</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Ngohiong -->
+            <div class="feature-cuisine">
+                <div class="slideshow-container">
+                    <div class="food-slideshow">
+                        <div class="food-slide">
+                            <img src="cuisine-pics/ngohiong-1.jpg" alt="">
+                        </div>
+                    </div>
+                    <div class="overlay"></div>
+                </div>
+
+                <div class="food-description">
+                    <img id="ngohiong" style="margin-right: 70px;" src="cuisine-pics/ngohiong--.jpg">
+                    <div class="text-description">
+                        <h1>Ngohiong</h1>
+                        <p>Cebu’s version of spring rolls is a golden delight filled with singkamas, ground pork, and
+                            seasoned with aromatic Chinese five-spice. Complemented by a sweet-and-spicy dipping sauce,
+                            it’s a flavorful fusion of textures and bold flavors!</p>
+                    </div>
+                </div>
+
+                <div class="feature-spots">
+                    <h1>Signature Spots</h1>
+                    <div class="scroll-container" id="scrollContainer">
+                        <div class="scroll-item">
+                            <div class="place-card">
+                                <img src="cuisine-pics/chinese ngohiong.png" alt="Kuya Jeff's Siomayan">
+                                <h4>Chinese Ngohiong</h4>
+                                <p>Chinese Ngohiong, 345 Junquera St, Cebu City</p>
+                                <a href="https://g.co/kgs/Eg2dcb4" target="_blank">Visit Place</a>
+                            </div>
+                        </div>
+
+                        <div class="scroll-item">
+                            <div class="place-card">
+                                <img src="cuisine-pics/domings.jpg" alt="Siomayan sa Rama Compound">
+                                <h4>Doming's Ngohiong</h4>
+                                <p>Door #1 G/F Pacific Tourist Inn M. Gotianuy Bldg., V. Gullas St., 6000, Balintawak,
+                                    Cebu City</p>
+                                <a href="https://g.co/kgs/rfA7tFU" target="_blank">Visit Place</a>
+                            </div>
+                        </div>
+
+                        <div class="scroll-item">
+                            <div class="place-card">
+                                <img src="cuisine-pics/ho ngohiong.jpg" alt="Siomayan in Barangay Tisa">
+                                <h4>Ho’s Ngohiong</h4>
+                                <p> 8V4W+QMH, F. Ramos St, Cebu City, 6000 Cebu</p>
+                                <a href="https://g.co/kgs/1aBViXk" target="_blank">Visit Place</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+        <div class="slide-indicators">
+            <div class="indicator active"></div>
+            <div class="indicator"></div>
+            <div class="indicator"></div>
+            <div class="indicator"></div>
+            <div class="indicator"></div>
+            <div class="indicator"></div>
+        </div>
+        <div class="button-container">
+            <div class="button" onclick="moveCuisine(-1)">
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"
+                    class="lucide lucide-circle-chevron-left">
+                    <circle cx="12" cy="12" r="10" />
+                    <path d="m14 16-4-4 4-4" />
+                </svg>
+            </div>
+            <div class="button" onclick="moveCuisine(1)">
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"
+                    class="lucide lucide-circle-chevron-right">
+                    <circle cx="12" cy="12" r="10" />
+                    <path d="m10 8 4 4-4 4" />
+                </svg>
+            </div>
+        </div>
+
+    </div>
+
+
+
+    <div class="recommended-restaurants">
+        <div class="section-header">
+            <h1>Must-Try Places</h1>
+        </div>
+        <div class="recommended-container">
+            <div class="restaurant">
+                <img src="cuisine-pics/top-of-cebu.jpg" alt="">
+                <div class="restaurant-description">
+                    <h3>Top of Cebu</h3>
+                    <p>Top of Cebu, 9VCC+998, Cebu Tops Rd, Cebu City</p>
+                    <a href="https://g.co/kgs/x4hrb5B" target="_blank">Visit Place</a>
+                </div>
+            </div>
+            <div class="restaurant">
+                <img src="cuisine-pics/Larsian.JPG" alt="">
+                <div class="restaurant-description">
+                    <h3>Larsian BBQ</h3>
+                    <p>Larsian, 1197 Dionisio Jakosalem St, Cebu City</p>
+                    <a href="https://g.co/kgs/PFjsivu" target="_blank">Visit Place</a>
+                </div>
+            </div>
+            <div class="restaurant">
+                <img src="cuisine-pics/casa-verde-cbu.jpg" alt="">
+                <div class="restaurant-description">
+                    <h3>Casa Verde Cebu</h3>
+                    <p>Casa Verde, 69 Lim Tian Teng, Cebu City</p>
+                    <a href="https://g.co/kgs/WJaA6TV" target="_blank">Visit Place</a>
+                </div>
+            </div>
+            <div class="restaurant">
+                <img src="cuisine-pics/La Vie in the Sky and La Vie Parisienne Cebu.png" alt="">
+                <div class="restaurant-description">
+                    <h3>La Parisienne Sky</h3>
+                    <p>La Parisienne Sky, Tops Road, Cebu City</p>
+                    <a href="https://g.co/kgs/15LMS5E" target="_blank">Visit Place</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer">
+            <p>
+                &copy; Cebu City. All Rights Reserved. Privacy Policy | Terms of Service
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // for the navbar
+        window.onscroll = function() {
+            var navPanel = document.querySelector('.nav-panel');
+            
+            if (window.scrollY > window.innerHeight) {
+                navPanel.classList.add('scrolled');  // Add 'scrolled' class when scrolling down
+            } else {
+                navPanel.classList.remove('scrolled');  // Remove 'scrolled' class when back to top
+            }
+        };
+        // for the sidebar
+        function showSidebar() {
+            event.preventDefault();
+            const sidebar = document.querySelector('.sidebar');
+
+            sidebar.classList.add('active');
+        }
+
+        function hideSidebar() {
+            event.preventDefault();
+            const sidebar = document.querySelector('.sidebar');
+
+            sidebar.classList.remove('active');
+        }
+
+        function startInnerSlideshow() {
+            // Clear any existing interval to avoid duplicate intervals
+            clearInterval(slideInterval);
+
+            // Start the slideshow for the active cuisine
+            slideInterval = setInterval(() => moveSlide(1), 4000);
+        }
+
+        let cuisineIndex = 0;
+        const cuisine = document.querySelectorAll('.feature-cuisine');
+        const indicators = document.querySelectorAll(".indicator");
+        const totalCuisine = cuisine.length;
+
+        function moveCuisine(step) {
+            const carousel = document.querySelector('.featured-slideshow');
+
+            carousel.style.transition = 'none';
+
+            // Update cuisineIndex
+            cuisineIndex += step;
+
+            if (cuisineIndex >= totalCuisine) {
+                cuisineIndex = 0;
+            } else if (cuisineIndex < 0) {
+                cuisineIndex = totalCuisine - 1;
+            }
+            indicators.forEach((indicator, i) => {
+                indicator.classList.toggle("active", i === cuisineIndex);
+            });
+
+            const newTransformValue = -cuisineIndex * 100;
+            carousel.style.transform = `translateX(${newTransformValue}%)`;
+
+            // Update active class
+            cuisine.forEach((el, index) => el.classList.toggle('active', index === cuisineIndex));
+
+            // Reset inner slideshow for the new cuisine
+            slideIndex = 0;
+            resetFoodSlides();
+
+            // Restart the inner slideshow
+            startInnerSlideshow();
+
+            carousel.offsetHeight; // Trigger reflow
+            setTimeout(() => {
+                carousel.style.transition = 'transform 0.5s ease-in-out';
+            }, 50);
+        }
+
+        function resetFoodSlides() {
+            const foodCarousel = document.querySelector('.feature-cuisine.active .food-slideshow'); // Only reset the active cuisine
+
+            if (!foodCarousel) return; // Exit if no active cuisine is found
+
+            foodCarousel.style.transition = 'none';
+            foodCarousel.style.transform = 'translateX(0%)';
+        }
+
+        // Automatically move to the next cuisine every 15 seconds
+        setInterval(() => moveCuisine(1), 12000);
+
+        // Set the first cuisine as active and start the inner slideshow initially
+        cuisine[0].classList.add('active');
+        startInnerSlideshow();
+
+    </script>
+
+</body>
+
+</html>
