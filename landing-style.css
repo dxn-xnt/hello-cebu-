@@ -8,35 +8,6 @@ body::-webkit-scrollbar {
     display: none; /* Webkit browsers like Chrome and Safari */
 }
 
-/*
-.nav-panel {
-    z-index: 1000;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 10px;
-    display: grid;
-    grid-template-columns: 2fr 4fr;
-    align-content: center;
-    padding: 15px 5px;
-    background-color: rgba(000, 000, 000, 0.20);
-    background: linear-gradient(to bottom, rgba(000, 000, 000, 0.50), rgba(000, 000, 000, 0.30), rgba(000, 000, 000, 0.00));
-}
-
-.nav-buttons {
-    display: grid;
-    grid-template-columns: 1fr 1.3fr 1fr 1fr;
-    max-width: 500px;
-    justify-self: self-end;
-    align-content: center;
-    font-size: 20px;
-}
-
-.nav-buttons a {
-    text-align: center;
-}
-*/
 .nav-panel {
     z-index: 9999;
     position: fixed;
@@ -87,36 +58,73 @@ nav li {
 
 nav a {
     height: 100%;
-    padding: 0 30px;
+    padding: 0 20px;
     text-decoration: none;
     display: flex;
     align-items: center;
     color: inherit; 
+    position: relative; /* Allow the pseudo-element to be positioned */
+    transition: transform 0.3s ease; /* Smooth transition for moving text */
 }
 
+/* Underline effect before scroll */
+nav a::after {
+    content: ''; 
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 1px; /* Underline height */
+    background-color: #f1f1f1;
+    transition: width 0.3s ease; /* Smooth transition for underline */
+}
+/* On hover before scroll, the underline appears */
+nav a:hover::after {
+    width: 100%; /* Full width of the underline */
+}
+
+/* No underline after scroll, but text moves slightly up */
+nav a.scrolled-hover:hover {
+    transform: translateY(-5px); /* Move text slightly up */
+}
+
+/* No color change on hover */
 nav a:hover {
-    color: #f1f1f1; 
+    color: inherit; /* Keep the text color the same */
 }
 
-.menu-button {
-    display: none;
+/* Remove underline after scroll */
+nav a.scrolled-hover::after {
+    content: none; /* Remove the underline */
 }
+
+.menu-icon {
+    transition: fill 0.3s ease;
+    fill: #ffffff; 
+}
+
+.nav-panel.scrolled .menu-icon {
+    fill: black;  
+}
+
+/* Sidebar initial style */
 .sidebar {
     position: fixed;
     top: 0;
-    right: 0;
+    right: -250px; /* Start off-screen */
     height: 100vh;
     width: 250px;
     z-index: 999;
     background-color: rgba(255, 255, 255, 0.307);
     backdrop-filter: blur(5px);
     box-shadow: -10px 0 -10px rgba(0, 0, 0, 0.1);
-    display: none;
+    display: flex;
     flex-direction: column;
     align-items: flex-start;
     justify-content: flex-start;
+    transition: transform 0.5s ease-in-out; /* Smooth transition */
+    color: black; /* Set text color to black */
 }
-
 .sidebar li {
     width: 100%;
 }
@@ -124,20 +132,25 @@ nav a:hover {
 .sidebar a {
     width: 100%;
 }
+/* When the sidebar is active (shown), slide it in */
+.sidebar.active {
+    transform: translateX(-250px); /* Move the sidebar into view */
+}
+
+/* Prevent scrolling when sidebar is open */
+body.sidebar-active {
+    overflow: hidden;
+}
+
+.menu-button {
+    display: none;
+}
 
 * {
     margin: 0;
     padding: 0;
 }
 
-@media(max-width: 800px) {
-    .hideOnMobile {
-        display: none;
-    }
-    .menu-button {
-        display: block;
-    }
-}
 
 @media(max-width: 400px) {
     .sidebar {
@@ -146,6 +159,7 @@ nav a:hover {
 }
 
 
+/* Teaser Pictures */
 .carousel-container {
     position: relative;
     width: 100%;
@@ -172,13 +186,26 @@ nav a:hover {
     object-position: top;
 }
 
+/* Create the gradient with darker bottom */
+.carousel-slide::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 30%, rgba(0, 0, 0, 0.7) 80%);
+    pointer-events: none; /* Ensures the gradient does not block interaction */
+    z-index: 2; /* Ensures it stays above the image but below any text */
+}
+
 .slide-info {
     justify-items: end;
     min-width: 400px;
     max-width: 100vh;
     position: absolute;
-    bottom: 20px;
-    right: 20px;
+    bottom: 10%;
+    right: 5%;
     color: white;
     margin: 0;
     text-align: right;
@@ -188,36 +215,17 @@ nav a:hover {
 }
 
 .slide-info h1 {
-    font-size: 70px;
+    font-size: 60px;
     padding: 0;
     margin: 0;
 }
 
 .slide-info p {
-    max-width: 400px;
-    font-size: 15px;
+    max-width: 500px;
+    font-size: 20px;
     color: white;
     padding: 0;
     margin: 0;
-}
-
-button {
-    position: absolute;
-    top: 90%;
-    background: none;
-    color: white;
-    border: none;
-    padding: 10px;
-    cursor: pointer;
-    z-index: 1;
-}
-.prev {
-    opacity: 50%;
-    left: 10px;
-}
-.next {
-    opacity: 50%;
-    right: 10px;
 }
 
 .slide-indicators {
@@ -230,7 +238,7 @@ button {
 }
 .indicator{
     width: 35px;
-    height: 3px;
+    height: 2px;
     background: white;
     border-radius: 2px;
     cursor: pointer;
@@ -242,13 +250,86 @@ button {
 }
 
 
+
+
+
+/* Cebu City Description*/
+.image-container {
+    display: flex;
+    align-items: center; /* Vertically align items */
+    justify-content: space-evenly; /* Spread text and image apart */
+    justify-items: center;
+    min-height: 100vh; /* Full viewport height */
+    width: 100%;
+    margin: 0; /* No margins */
+    background-size: cover; /* Ensure it covers the entire section */
+    background-position: center; /* Center the background */
+    color: black; 
+    position: relative; /* For overlay */
+    flex-wrap: wrap;
+}
+
+.image-text {
+    padding: 20px 0px;
+    z-index: 2; 
+    width: 45%;
+}
+
+.image-text h2 {
+    font-size: 60px; 
+    padding: 0;
+    margin: 0;
+}
+
+.image-text p {
+    font-size: 18px; 
+    padding: 0;
+    margin: 0;
+}
+
+.image-wrapper {
+    width: 35%;
+    height: auto; 
+    display: flex;
+    align-items: center; 
+    justify-content: flex-end; 
+    z-index: 2; 
+}
+
+/* Initially set opacity to 0, and position the element below its normal position */
+.image-container .image-text,
+.image-container .image-wrapper {
+    opacity: 0;
+    transform: translateY(70px); /* Start slightly below the normal position */
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out; /* Transition both opacity and sliding */
+}
+
+/* When the element is visible in the viewport, make it fade in and slide up */
+.image-container.visible .image-text,
+.image-container.visible .image-wrapper {
+    opacity: 1;
+    transform: translateY(0); /* Slide up to normal position */
+    transition-delay: 0.5s; /* Delay for the fade-in and slide-up effect */
+}
+
+.side-image {
+    max-width: 100%; 
+    height: auto; 
+    border-radius: 10px; 
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.5); 
+}
+
+
+
+
 /* Demographic*/
 .demographic {
     display: flex;
     min-height: 200px;
     padding: 20px 20px;
     justify-content: space-evenly;
-    background-image: linear-gradient(to bottom, rgba(8, 82, 48, 0.5) , rgba(8, 82, 48, 0.9) ), url('/pics/Cebu-City-aerial-view.jpg');
+    background-image: linear-gradient(to bottom, rgba(8, 82, 48, 0.5) , rgba(8, 82, 48, 0.9) ), url('/landing-pics/Cebu-City-aerial-view.jpg');
+    background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
     justify-items: center;
@@ -289,59 +370,150 @@ button {
 
 
 /* Background */
-.explore-cebu {
-    width: 100%;
-    display: flex;
-    color: black;
-    flex-wrap: wrap;
-    text-align: center;
-    padding: 20px 0px;
-    height: 450px;
-}
-.explore-cebu h1{
-    width: 100%;
-}
-.feature-container {
-    display: flex;
-    gap: 10px;
-}
-.feature {
-    height: 300px;
-}
-.feature img{
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
-}
+/* General card container styles */
 
 .cebu-background {
-    width: 100%;
-    height: auto;
+    padding: 10% 0px;
+    padding-top: 4%;
     text-align: center;
-    justify-content: center;
-    justify-items: center;
-    padding: 30px 0px;
+    color: white; 
+}
+
+.section-title h2 {
+    font-size: 36px;
+    margin-bottom: 50px; 
+    color: black;
+}
+.card-container {
     display: flex;
+    justify-content: space-evenly;
+    gap: 15px;
     flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto; 
+    padding: 0px 5%;
 }
-.cebu-background img{
-    height: 300px;
-    width: 500px;
-    object-fit: cover;
-    border-radius: 10px;
+
+/* General card styles */
+.card {
+    position: relative;
+    width: calc(48% - 10px); /* Adjust width if necessary */
+    height: 400px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 20px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
 }
-.cebu-background h1, p{
-    width: 80%;
-    padding: 5px;
+
+/* Specific card styles */
+.card1, .card4 { 
+    width: calc(64% - 20px); 
+    height: 400px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 20px;
 }
-.cebu-background h1{
-    padding-top: 20px;
+
+.card2, .card3 {
+    width: calc(38% - 20px); 
+    height: 400px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 20px;
 }
-.background-description {
-    display: block;
+
+/* Card Text */
+.card h3 {
+    position: absolute;
+    font-size: 24px;
+    margin: 0;
+    z-index: 2; 
+}   
+
+/* Card 1 - Attractions */
+.card1 {
+    background-image: url('landing-pics/tops.jpeg');
+    background-size: cover;
+    background-position: center;
+}
+.card1::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
     width: 100%;
-    justify-content: center;
-    justify-items: center;
+    height: 50px; /* Set the height of the gradient */
+    background: linear-gradient(to top, rgba(7, 59, 76, 0.9), rgba(7, 59, 76, 0)); /* Darker at the bottom, fading at the top */
+}
+
+
+/* Card 2 - Cuisine */
+.card2 {
+    background-image: url('landing-pics/cuisine.png');
+    background-size: cover;
+    background-position: center;
+}
+.card2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 50px; /* Set the height of the gradient */
+    background: linear-gradient(to top, rgba(150, 0, 0, 0.9), rgba(150, 0, 0, 0)); /* Darker at the bottom, fading at the top */
+}
+
+/* Card 3 - Culture */
+.card3 {
+    background-image: url('/landing-pics/culture.png');
+    background-size: cover;
+    background-position: center;
+}
+.card3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 50px; /* Set the height of the gradient */
+    background: linear-gradient(to top, rgba(162, 119, 19, 0.9), rgba(162, 119, 19, 0)); /* Darker at the bottom, fading at the top */
+}
+
+/* Card 4 - Events */
+.card4 {
+    background-image: url('/landing-pics/events-2.jpg');
+    background-size: cover;
+    background-position: center;
+}
+.card4::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 50px; /* Set the height of the gradient */
+    background: linear-gradient(to top, rgba(8, 82, 48, 0.9), rgba(8, 82, 48, 0)); /* Darker at the bottom, fading at the top */
+}
+
+/* Text content */
+.card-content {
+    position: absolute;
+    bottom: 30px; /* Adjust this as needed for the vertical position */
+    left: 0; /* Reset left to cover the full card */
+    width: 100%; /* Make the container span the full width of the card */
+    display: flex; /* Use flexbox for alignment */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically (if needed for multi-line text) */
+    z-index: 2; /* Ensure text is above the gradient */
+    color: white;
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0;
+}
+.card:hover {
+    transform: scale(1.02);
 }
 
 
@@ -352,7 +524,7 @@ button {
     width: 100%;
     display: flex;
     flex-direction: column;
-    background-image: url('/pics/Cebu-City-aerial-view.jpg');
+    background-image: linear-gradient(to bottom, rgba(7, 59, 76, 0.5) , rgba(7, 59, 56, 0.9) ), url('/landing-pics/CFA.jpg');
     background-attachment: fixed;
     background-size: cover;
     background-repeat: no-repeat;
@@ -420,23 +592,6 @@ button {
 }
 
 
-
-@media (max-width: 1024px) {
-    .book-overview {
-        width: 100%;
-        margin-right: 0px;
-    }
-    .mini-container {
-        width: 100%;
-        margin-right: 0px;
-        gap: 0;
-    }
-    .user-count {
-        margin-top: 10px;
-        margin-bottom: 0px;
-    }
-}
-
 /*About Us*/
 .footer {
     color: #ffffff;
@@ -450,4 +605,28 @@ button {
     width: 100%;
     padding: 0px 0px;
     margin: 0px;
+}
+
+
+
+@media(max-width: 800px) {
+    .hideOnMobile {
+        display: none;
+    }
+    .menu-button {
+        display: block;
+    }
+    .image-container {
+        text-align: center;
+    }
+    .image-wrapper {
+        width: 100%;
+        padding: 0px 5%;
+        padding-bottom: 20px;
+    }
+    .image-text {
+        width: 80%;
+        padding: 0px 10%;
+        padding-bottom: 20px;
+    }
 }

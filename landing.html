@@ -11,48 +11,50 @@
 </head>
 <body>
     <nav class="nav-panel">
-        <img src="logo.png">
+        <img src="/general-pics/logo.png">
         <ul class="sidebar">
             <li onclick=hideSidebar()><a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#5f6368"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg></a></li>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Cuisine</a></li>
-            <li><a href="#">Attractions</a></li>
-            <li><a href="#">Events</a></li>
+            <li><a href="landing.html">Home</a></li>
+            <li><a href="cuisine.html">Cuisine</a></li>
+            <li><a href="attractions.html">Attractions</a></li>
+            <li><a href="events-festival.html">Events</a></li>
+            <li><a href="about-us.html">About Us</a></li>
+            <li><a href="team.html">Team</a></li>
         </ul>
 
         <ul>
-            <li><a class="hideOnMobile" href="#">Home</a></li>
-            <li><a class="hideOnMobile" href="#">Cuisine</a></li>
-            <li><a class="hideOnMobile" href="#">Attractions</a></li>
-            <li><a class="hideOnMobile" href="#">Events</a></li>
+            <li><a class="hideOnMobile" href="landing.html">Home</a></li>
+            <li><a class="hideOnMobile" href="cuisine.html">Cuisine</a></li>
+            <li><a class="hideOnMobile" href="attractions.html">Attractions</a></li>
+            <li><a class="hideOnMobile" href="events-festival.html">Events</a></li>
+            <li><a class="hideOnMobile" href="about-us.html">About Us</a></li>
+            <li><a class="hideOnMobile" href="team.html">Team</a></li>
             <li class="menu-button" onclick=showSidebar()><a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#5f6368"><path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/></svg></a></li>
         </ul>
     </nav>
-
+    
     <section class="teaser-slides">    
-        
         <div class="carousel-container">
             <div class="carousel">
-
                 <div class="carousel-slide">
-                    <img src="/pics/Cebu-City-aerial-view.jpg" alt="chicharon">
+                    <img src="/landing-pics/lechon.jpg" alt="lechon">
                     <div class="slide-info">
-                        <h1>DEVOTION</h1>
-                        <p>The pride of Tisa! These steamed pork dumplings are a mouthwatering specialty of the district.</p>
+                        <h1>LECHON DE CEBU</h1>
+                        <p>Savor the succulent flavors of Cebu’s iconic Lechon, a culinary masterpiece of tender, juicy pork wrapped in perfectly crisp, golden skin. A festive dish that captures the heart of Filipino culture and tradition!</p>
                     </div>
                 </div>
                 <div class="carousel-slide">
-                    <img src="/pics/magellan-cross.jpg" alt="chicharon">
+                    <img src="/landing-pics/attractions.jpg" alt="chicharon">
+                    <div class="slide-info">
+                        <h1>CCLEX</h1>
+                        <p>Discover Cebu’s breathtaking attractions—from the iconic CCLEX Bridge to pristine beaches and majestic mountain views, each a gateway to unforgettable memories.</p>
+                    </div>
+                </div>
+                <div class="carousel-slide">
+                    <img src="/landing-pics/events.jpg" alt="chicharon">
                     <div class="slide-info">
                         <h1>SINULOG</h1>
-                        <p>The pride of Tisa! These steamed pork dumplings are a mouthwatering specialty of the district.</p>
-                    </div>
-                </div>
-                <div class="carousel-slide">
-                    <img src="/pics/carcar-chicharon.jpg" alt="chicharon">
-                    <div class="slide-info">
-                        <h1>CHICHARON</h1>
-                        <p>The pride of Tisa! These steamed pork dumplings are a mouthwatering specialty of the district.</p>
+                        <p>Feel the rhythm and passion of the Sinulog Festival, a dazzling celebration of faith and culture that turns the streets of Cebu into a vibrant sea of dance, color, and joy!</p>
                     </div>
                 </div>
             </div>
@@ -63,14 +65,32 @@
                 <div class="indicator"></div>
             </div>
         </div>
+            
+        <section class="image-container">
+            <div class="image-text">
+                <h2>CEBU CITY</h2>
+                <p>Cebu City, the "Queen City of the South," seamlessly combines the charm of its colonial past with the excitement of a modern metropolis. 
+                    From its stunning beaches and natural wonders to its bustling markets and thriving tech scene, Cebu offers something for every traveler and entrepreneur alike.
+                    Whether you're seeking adventure, history, or innovation, Cebu is the place where it all comes together.</p>
+            </div>
+            <div class="image-wrapper">
+                <img class="side-image" src="/landing-pics/capitol.jpg" alt="Side Image">
+            </div>
+        </section>
 
-        <div class="cebu-background">
-            <img src="/pics/Cebu_City_Hall_(Plaza_Sugbu,_Cebu_City;_01-21-2023).jpg" alt="">
-            <div class="background-description">
-                <h1>Cebu City</h1>
-                <p>Cebu City, the "Queen City of the South," is the oldest city in the Philippines and a vibrant hub for trade, tourism, and culture. Known for landmarks like Magellan’s Cross and the Basilica Minore del Santo Niño, it blends rich history with modern urban life. Highlighted by the grand Sinulog Festival and famous for its delicious lechon, Cebu City is a top destination and a dynamic center of growth.</p>
-            </div>    
-        </div>
+        <script>
+            window.addEventListener('scroll', function() {
+                const container = document.querySelector('.image-container');
+                const rect = container.getBoundingClientRect();
+                
+                // If the image container is in view (partially or fully), trigger the fade and slide effect
+                if (rect.top < window.innerHeight && rect.bottom >= 0) {
+                    container.classList.add('visible'); // Fade in and slide up when entering the viewport
+                } else {
+                    container.classList.remove('visible'); // Fade out and slide down when leaving the viewport
+                }
+            });
+        </script>
 
         <div class="demographic">
             <div class="demographic-item">
@@ -90,32 +110,37 @@
             </div>
         </div>
 
-        <div class="explore-cebu">
-            <h1>Explore Cebu</h1>
-            <div class="feature-container">
-
-                <div class="feature">
-                    <img src="/pics/attractions.jpg" alt="">
-                    <h1>Attractions</h1>
+        <div class="cebu-background">
+            <div class="section-title">
+                <h2>Get To Know More About Cebu City</h2>
+            </div>
+            <div class="card-container">
+                <div class="card card1">
+                    <div class="card-content">
+                        <h3>Attractions</h3>
+                    </div>
                 </div>
-                <div class="feature">
-                    <img src="/pics/background.jpg" alt="">
-                    <h1>Background</h1>
+                <div class="card card2">
+                    <div class="card-content">
+                        <h3>Cuisine</h3>
+                    </div>
                 </div>
-                <div class="feature">
-                    <img src="/pics/events.jpg" alt="">
-                    <h1>Events</h1>
+                <div class="card card3">
+                    <div class="card-content">
+                        <h3>Culture</h3>
+                    </div>
                 </div>
-                <div class="feature">
-                    <img src="/pics/lechon-2.png" alt="">
-                    <h1>Cuisine</h1>
+                <div class="card card4">
+                    <div class="card-content">
+                        <h3>Events</h3>
+                    </div>
                 </div>
             </div>
         </div>
 
         <div class="call-for-action">
             <h4>Discover the Heart of Cebu City<br>Dive into its</h4> 
-            <img src="call-for-action.png">
+            <img src="/general-pics/call-for-action.png">
             <h4>Start Your Journey with Us Today!</h4>
         </div>
 
@@ -127,6 +152,7 @@
             </div>
         </footer>
 
+        
         <script src="script.js"></script>
         
     </section>
